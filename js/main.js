@@ -498,7 +498,7 @@
       { width: '0%', color: '#EF4444', label: '' },
       { width: '25%', color: '#EF4444', label: 'Weak' },
       { width: '50%', color: '#F59E0B', label: 'Fair' },
-      { width: '75%', color: '#3B82F6', label: 'Good' },
+      { width: '75%', color: '#D4AF37', label: 'Good' },
       { width: '100%', color: '#10B981', label: 'Strong' },
     ];
 

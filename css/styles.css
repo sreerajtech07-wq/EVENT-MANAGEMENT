@@ -3,41 +3,45 @@
    Custom Styles & Design System
    ============================================ */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* ---------- CSS Variables ---------- */
+/* ---------- CSS Variables — Black & Gold Luxury ---------- */
 :root {
-  --bg-primary: #0F172A;
-  --bg-secondary: #1E293B;
-  --bg-card: rgba(30, 41, 59, 0.6);
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #64748B;
-  --accent-purple: #8B5CF6;
-  --accent-blue: #3B82F6;
-  --accent-pink: #EC4899;
-  --gradient-primary: linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #EC4899 100%);
-  --gradient-subtle: linear-gradient(135deg, rgba(139, 92, 246, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
-  --glass-bg: rgba(15, 23, 42, 0.75);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.3);
-  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.15);
+  --bg-primary: #0A0A0A;
+  --bg-secondary: #141414;
+  --bg-card: rgba(20, 20, 20, 0.75);
+  --text-primary: #FAFAF9;
+  --text-secondary: #A8A29E;
+  --text-muted: #78716C;
+  --accent-gold: #D4AF37;
+  --accent-gold-light: #F5D061;
+  --accent-gold-dark: #B8860B;
+  --accent-champagne: #E8C872;
+  --accent-purple: #D4AF37;
+  --accent-blue: #C9A962;
+  --accent-pink: #F5D061;
+  --gradient-primary: linear-gradient(135deg, #B8860B 0%, #D4AF37 45%, #F5D061 100%);
+  --gradient-subtle: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(184, 134, 11, 0.06) 100%);
+  --glass-bg: rgba(10, 10, 10, 0.88);
+  --glass-border: rgba(212, 175, 55, 0.15);
+  --shadow-soft: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.2);
   --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
   --nav-height: 72px;
 }
 
-/* Light mode overrides */
+/* Light mode — ivory & gold */
 html.light {
-  --bg-primary: #F8FAFC;
+  --bg-primary: #FAF9F6;
   --bg-secondary: #FFFFFF;
-  --bg-card: rgba(255, 255, 255, 0.8);
-  --text-primary: #0F172A;
-  --text-secondary: #475569;
-  --text-muted: #94A3B8;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(15, 23, 42, 0.08);
-  --shadow-soft: 0 8px 32px rgba(15, 23, 42, 0.08);
-  --shadow-glow: 0 0 40px rgba(139, 92, 246, 0.1);
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --text-primary: #0A0A0A;
+  --text-secondary: #57534E;
+  --text-muted: #A8A29E;
+  --glass-bg: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(212, 175, 55, 0.2);
+  --shadow-soft: 0 8px 32px rgba(10, 10, 10, 0.08);
+  --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
 }
 
 /* ---------- Base ---------- */
@@ -51,7 +55,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Montserrat', system-ui, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   overflow-x: hidden;
@@ -68,12 +72,13 @@ body.theme-transitioning * {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cinzel', Georgia, serif;
+  letter-spacing: 0.02em;
 }
 
 ::selection {
-  background: rgba(139, 92, 246, 0.4);
-  color: #fff;
+  background: rgba(212, 175, 55, 0.45);
+  color: #0A0A0A;
 }
 
 /* ---------- Scrollbar ---------- */
@@ -84,13 +89,14 @@ h1, h2, h3, h4, h5, h6 {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, var(--accent-purple), var(--accent-blue));
+  background: linear-gradient(180deg, var(--accent-gold-dark), var(--accent-gold-light));
   border-radius: 4px;
 }
 
 /* ---------- Utility Classes ---------- */
 .font-display {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Cinzel', Georgia, serif;
+  letter-spacing: 0.04em;
 }
 
 .text-gradient {
@@ -160,7 +166,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-glow), 0 12px 24px rgba(139, 92, 246, 0.3);
+  box-shadow: var(--shadow-glow), 0 12px 24px rgba(212, 175, 55, 0.25);
 }
 
 .btn-primary:hover::before {
@@ -189,8 +195,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .btn-outline:hover {
-  border-color: var(--accent-purple);
-  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.08);
   transform: translateY(-2px);
 }
 
@@ -244,7 +250,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: var(--accent-purple);
+  color: var(--accent-gold);
   margin-bottom: 1rem;
 }
 
@@ -284,18 +290,18 @@ h1, h2, h3, h4, h5, h6 {
   inset: 0;
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.92) 0%,
-    rgba(15, 23, 42, 0.7) 40%,
-    rgba(88, 28, 135, 0.4) 100%
+    rgba(10, 10, 10, 0.93) 0%,
+    rgba(10, 10, 10, 0.75) 45%,
+    rgba(184, 134, 11, 0.25) 100%
   );
 }
 
 html.light .hero-overlay {
   background: linear-gradient(
     135deg,
-    rgba(15, 23, 42, 0.85) 0%,
-    rgba(15, 23, 42, 0.6) 50%,
-    rgba(88, 28, 135, 0.35) 100%
+    rgba(10, 10, 10, 0.82) 0%,
+    rgba(10, 10, 10, 0.55) 50%,
+    rgba(184, 134, 11, 0.3) 100%
   );
 }
 
@@ -355,7 +361,7 @@ html.light .hero-overlay {
 .scroll-indicator .wheel {
   width: 4px;
   height: 8px;
-  background: var(--accent-purple);
+  background: var(--accent-gold);
   border-radius: 2px;
   position: absolute;
   top: 6px;
@@ -465,7 +471,7 @@ html.light .hero-overlay {
 .gallery-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 23, 42, 0.9) 0%, transparent 60%);
+  background: linear-gradient(to top, rgba(10, 10, 10, 0.92) 0%, transparent 60%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -484,7 +490,7 @@ html.light .hero-overlay {
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent-purple);
+  color: var(--accent-gold);
   margin-bottom: 0.25rem;
 }
 
@@ -524,8 +530,8 @@ html.light .hero-overlay {
 }
 
 .pricing-card.featured {
-  border-color: var(--accent-purple);
-  background: linear-gradient(135deg, rgba(139, 92, 246, 0.1) 0%, rgba(59, 130, 246, 0.05) 100%);
+  border-color: var(--accent-gold);
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(184, 134, 11, 0.06) 100%);
   transform: scale(1.05);
   z-index: 2;
 }
@@ -551,7 +557,7 @@ html.light .hero-overlay {
 }
 
 .pricing-price {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cinzel', serif;
   font-size: 3rem;
   font-weight: 700;
   line-height: 1;
@@ -568,7 +574,7 @@ html.light .hero-overlay {
 
 .pricing-features li svg {
   flex-shrink: 0;
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 /* ---------- Testimonials ---------- */
@@ -612,7 +618,7 @@ html.light .hero-overlay {
   height: 56px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--accent-purple);
+  border: 2px solid var(--accent-gold);
 }
 
 .star-rating {
@@ -634,7 +640,7 @@ html.light .hero-overlay {
 }
 
 .counter-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cinzel', serif;
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 700;
   background: var(--gradient-primary);
@@ -654,7 +660,7 @@ html.light .hero-overlay {
 }
 
 .faq-item.active {
-  border-color: rgba(139, 92, 246, 0.3);
+  border-color: rgba(212, 175, 55, 0.35);
 }
 
 .faq-question {
@@ -671,11 +677,11 @@ html.light .hero-overlay {
   text-align: left;
   cursor: pointer;
   transition: color 0.3s;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .faq-question:hover {
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 .faq-icon {
@@ -683,7 +689,7 @@ html.light .hero-overlay {
   height: 24px;
   flex-shrink: 0;
   transition: transform 0.4s var(--transition-smooth);
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 .faq-item.active .faq-icon {
@@ -747,7 +753,7 @@ html.light .hero-overlay {
 }
 
 .footer-link:hover {
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 .social-icon {
@@ -787,12 +793,12 @@ html.light .hero-overlay {
 .form-input {
   width: 100%;
   padding: 0.875rem 1rem;
-  background: rgba(15, 23, 42, 0.5);
+  background: rgba(10, 10, 10, 0.6);
   border: 1px solid var(--glass-border);
   border-radius: 0.75rem;
   color: var(--text-primary);
   font-size: 0.9375rem;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   transition: border-color 0.3s, box-shadow 0.3s;
   outline: none;
 }
@@ -802,8 +808,8 @@ html.light .form-input {
 }
 
 .form-input:focus {
-  border-color: var(--accent-purple);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
 }
 
 .form-input.error {
@@ -848,7 +854,7 @@ html.light .form-input {
 }
 
 .password-toggle:hover {
-  color: var(--accent-purple);
+  color: var(--accent-gold);
 }
 
 /* Password strength */
@@ -961,7 +967,7 @@ html.light .form-input {
   position: fixed;
   inset: 0;
   z-index: 40;
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(10, 10, 10, 0.96);
   backdrop-filter: blur(20px);
   display: flex;
   flex-direction: column;
@@ -984,7 +990,7 @@ html.light .mobile-menu {
 
 .mobile-menu .nav-link {
   font-size: 1.5rem;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cinzel', serif;
 }
 
 .hamburger {
@@ -1091,7 +1097,7 @@ html.light .mobile-menu {
 }
 
 .theme-toggle:hover {
-  border-color: var(--accent-purple);
+  border-color: var(--accent-gold);
   transform: rotate(15deg);
 }
 
@@ -1182,7 +1188,7 @@ html.light .theme-toggle .icon-moon {
 }
 
 .newsletter-form input:focus {
-  border-color: var(--accent-purple);
+  border-color: var(--accent-gold);
 }
 
 .newsletter-form button {

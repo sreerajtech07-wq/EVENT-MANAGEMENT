@@ -27,11 +27,11 @@ Luxe Events is a fictional premium event management company website showcasing s
 ## Features
 
 ### Design & UI
-- **Luxury dark theme** with purple/blue/pink gradient accents
+- **Black & gold luxury theme** with champagne gradient accents
 - **Glassmorphism** cards with backdrop blur and soft shadows
 - **Fully responsive** — mobile, tablet, laptop, desktop, large monitors
 - **Dark/Light mode toggle** with LocalStorage persistence and animated transitions
-- **Premium typography** — Playfair Display + Inter font pairing
+- **Premium typography** — Cinzel + Montserrat font pairing
 
 ### Home Page Sections
 1. Hero with parallax background and floating elements
@@ -72,7 +72,7 @@ Luxe Events is a fictional premium event management company website showcasing s
 | Tailwind CSS (CDN) | Utility classes, responsive grid/flex layout |
 | GSAP 3.12 + ScrollTrigger (CDN) | Professional scroll and entrance animations |
 | Vanilla JavaScript | Dark mode, forms, FAQ, slider, gallery filter |
-| Google Fonts | Playfair Display + Inter |
+| Google Fonts | Cinzel + Montserrat |
 | Unsplash | High-quality royalty-free placeholder images |
 
 ## How to Run Locally
