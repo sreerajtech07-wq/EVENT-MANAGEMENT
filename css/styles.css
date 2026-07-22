@@ -1,11 +1,8 @@
-/* ============================================
-   LUXE EVENTS — Premium Event Management
-   Custom Styles & Design System
-   ============================================ */
+
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* ---------- CSS Variables — Black & Gold Luxury ---------- */
+
 :root {
   --bg-primary: #0A0A0A;
   --bg-secondary: #141414;
