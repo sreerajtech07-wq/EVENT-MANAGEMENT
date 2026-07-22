@@ -51,19 +51,19 @@
     <header class="booking-page-header">
       <div class="max-w-3xl mx-auto px-4 sm:px-6">
         <span class="section-label gsap-reveal">Reserve Your Date</span>
-        <h1 class="font-display text-4xl sm:text-5xl font-bold mb-4 gsap-reveal">Book Your Event</h1>
-        <p class="text-lg gsap-reveal" style="color: var(--text-secondary);">Tell us about your vision and our team will craft a personalized proposal within 24 hours.</p>
+        <h1 class="font-display text-4xl sm:text-5xl font-bold mb-4 gsap-reveal">Let's Start Planning Your Dream Event</h1>
+        <p class="text-lg gsap-reveal" style="color: var(--text-secondary);">Tell us all about your vision—whether it's a lavish wedding, a milestone birthday, or a corporate gathering. We'll craft a personalized proposal within 24 hours and bring your ideas to life.</p>
       </div>
     </header>
 
-    <section class="section-padding pt-0">
+    <section class="section-padding pt-0 mt-20">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="glass-card rounded-2xl p-6 sm:p-10 gsap-reveal">
           <form id="booking-form" novalidate>
             <div class="grid sm:grid-cols-2 gap-x-6">
               <div class="form-group sm:col-span-2">
-                <label for="full-name" class="form-label">Full Name</label>
-                <input type="text" id="full-name" name="full_name" class="form-input" placeholder="John Doe" autocomplete="name" required aria-required="true">
+                <label for="full-name" class="form-label">What's Your Full Name?</label>
+                <input type="text" id="full-name" name="full_name" class="form-input" placeholder="e.g., John Doe" autocomplete="name" required aria-required="true">
                 <span class="form-error" role="alert"></span>
               </div>
 
@@ -86,7 +86,7 @@
               </div>
 
               <div class="form-group">
-                <label for="event-type" class="form-label">Event Type</label>
+                <label for="event-type" class="form-label">What Type of Event?</label>
                 <select id="event-type" name="event_type" class="form-input form-select" required aria-required="true">
                   <option value="">Select event type</option>
                   <option value="birthday">Birthday Party</option>
@@ -100,19 +100,19 @@
               </div>
 
               <div class="form-group sm:col-span-2">
-                <label for="location" class="form-label">Event Location</label>
+                <label for="location" class="form-label">Where's the Event Happening?</label>
                 <input type="text" id="location" name="location" class="form-input" placeholder="Venue name or address" required aria-required="true">
                 <span class="form-error" role="alert"></span>
               </div>
 
               <div class="form-group">
-                <label for="guests" class="form-label">Number of Guests</label>
-                <input type="number" id="guests" name="guests" class="form-input" placeholder="e.g. 100" min="1" required aria-required="true">
+                <label for="guests" class="form-label">How Many Guests Are You Planning For?</label>
+                <input type="number" id="guests" name="guests" class="form-input" placeholder="e.g., 100" min="1" required aria-required="true">
                 <span class="form-error" role="alert"></span>
               </div>
 
               <div class="form-group">
-                <label for="budget" class="form-label">Estimated Budget</label>
+                <label for="budget" class="form-label">What's Your Estimated Budget?</label>
                 <select id="budget" name="budget" class="form-input form-select" required aria-required="true">
                   <option value="">Select budget range</option>
                   <option value="under-2000">Under $2,000</option>
@@ -124,12 +124,12 @@
               </div>
 
               <div class="form-group sm:col-span-2">
-                <label for="notes" class="form-label">Additional Notes</label>
-                <textarea id="notes" name="notes" class="form-input min-h-[120px] resize-y" placeholder="Tell us about your vision, theme preferences, special requirements..."></textarea>
+                <label for="notes" class="form-label">Tell Us More About Your Vision</label>
+                <textarea id="notes" name="notes" class="form-input min-h-[120px] resize-y" placeholder="What's the vibe? Any theme in mind? Special requirements or must-haves? We're all ears!"></textarea>
               </div>
             </div>
 
-            <button type="submit" class="btn-primary w-full mt-4 text-lg py-4">Submit Booking Request</button>
+            <button type="submit" class="btn-primary w-full mt-4 text-lg py-4">Send My Booking Request</button>
           </form>
         </div>
 
@@ -138,17 +138,17 @@
           <div class="glass-card rounded-xl p-5">
             <p class="text-2xl mb-2">⚡</p>
             <h3 class="font-semibold mb-1">Fast Response</h3>
-            <p class="text-sm" style="color: var(--text-secondary);">Proposal within 24 hours</p>
+            <p class="text-sm" style="color: var(--text-secondary);">We'll get back to you within 24 hours</p>
           </div>
           <div class="glass-card rounded-xl p-5">
             <p class="text-2xl mb-2">🔒</p>
-            <h3 class="font-semibold mb-1">Secure Booking</h3>
-            <p class="text-sm" style="color: var(--text-secondary);">Your data is protected</p>
+            <h3 class="font-semibold mb-1">Secure & Private</h3>
+            <p class="text-sm" style="color: var(--text-secondary);">Your information is safe with us</p>
           </div>
           <div class="glass-card rounded-xl p-5">
             <p class="text-2xl mb-2">✨</p>
-            <h3 class="font-semibold mb-1">No Obligation</h3>
-            <p class="text-sm" style="color: var(--text-secondary);">Free consultation included</p>
+            <h3 class="font-semibold mb-1">No Pressure</h3>
+            <p class="text-sm" style="color: var(--text-secondary);">Free consultation, no obligation</p>
           </div>
         </div>
       </div>
