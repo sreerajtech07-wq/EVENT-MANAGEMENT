@@ -1,115 +1,63 @@
-# Luxe Events — Premium Event Management Website
+# Event Management Booking Website
 
-A production-quality, fully responsive event management booking website built with modern frontend technologies. Designed with a luxury aesthetic featuring glassmorphism, gradient accents, and professional GSAP animations.
+A modern, responsive Event Management Booking Website built using HTML, CSS, Tailwind CSS, JavaScript, and GSAP. The website allows users to explore event services, register, log in, submit booking requests, and contact the company through a clean and user-friendly interface.
 
-## Project Overview
+## Live Demo
 
-Luxe Events is a fictional premium event management company website showcasing services for weddings, corporate events, birthday parties, photography, and workshops. The site includes a complete home page with 11 sections, authentication pages, a booking form, and contact page — all built with vanilla HTML, CSS, and JavaScript.
-
-## Folder Structure
-
-```
-/
-├── index.html          # Home page (Hero, About, Services, Gallery, Events, Pricing, Testimonials, Counters, FAQ, CTA, Footer)
-├── login.html          # Login page with glassmorphism form
-├── register.html       # Registration with password strength indicator
-├── booking.html        # Event booking form
-├── contact.html        # Contact page with map and form
-├── css/
-│   └── styles.css      # Custom styles, design system, dark mode
-├── js/
-│   ├── main.js         # Navbar, dark mode, forms, FAQ, testimonials, gallery filter
-│   └── animations.js   # GSAP ScrollTrigger animations
-├── images/             # Image assets (uses Unsplash CDN placeholders)
-└── README.md
-```
+🔗 https://sreerajtech07-wq.github.io/EVENT-MANAGEMENT/
 
 ## Features
 
-### Design & UI
-- **Black & gold luxury theme** with champagne gradient accents
-- **Glassmorphism** cards with backdrop blur and soft shadows
-- **Fully responsive** — mobile, tablet, laptop, desktop, large monitors
-- **Dark/Light mode toggle** with LocalStorage persistence and animated transitions
-- **Premium typography** — Cinzel + Montserrat font pairing
-
-### Home Page Sections
-1. Hero with parallax background and floating elements
-2. About (Mission, Vision, Why Choose Us)
-3. Services (6 service cards with hover effects)
-4. Events Gallery with category filters
-5. Upcoming Events cards
-6. Pricing Packages (Silver, Gold, Platinum)
-7. Testimonials auto-slider
-8. Animated counters (ScrollTrigger)
-9. FAQ accordion
-10. CTA banner
-11. Full footer with newsletter
-
-### Interactivity
-- Sticky navbar with scroll-based background change
-- Mobile hamburger menu with smooth animation
-- GSAP animations: fade-in, slide-up, parallax, stagger, scale, counters
-- Client-side form validation on all forms
-- Success modal popups
-- Password visibility toggle and strength indicator
-- Gallery category filtering
-
-### Accessibility
-- Semantic HTML5 elements
-- Proper heading hierarchy
-- ARIA labels and roles
-- Keyboard navigation support
-- Alt text on images
-- Good color contrast ratios
+- Responsive Design
+- Modern UI
+- Dark Mode
+- Hero Section
+- Event Gallery
+- Upcoming Events
+- Event Booking Form
+- Login & Registration
+- Contact Page
+- Testimonials
+- FAQ Section
+- Pricing Packages
+- GSAP Animations
 
 ## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Semantic markup |
-| CSS3 | Custom design system, animations, glassmorphism |
-| Tailwind CSS (CDN) | Utility classes, responsive grid/flex layout |
-| GSAP 3.12 + ScrollTrigger (CDN) | Professional scroll and entrance animations |
-| Vanilla JavaScript | Dark mode, forms, FAQ, slider, gallery filter |
-| Google Fonts | Cinzel + Montserrat |
-| Unsplash | High-quality royalty-free placeholder images |
+- HTML5
+- CSS3
+- Tailwind CSS
+- JavaScript
+- GSAP
 
-## How to Run Locally
+## Project Structure
 
-No build tools, package manager, or server required.
-
-1. **Clone or download** the project folder
-2. **Open `index.html`** directly in any modern browser (Chrome, Firefox, Edge, Safari)
-3. Navigate between pages using the navbar links
-
-> **Note:** An internet connection is required for CDN resources (Tailwind CSS, GSAP, Google Fonts, Unsplash images, Google Maps embed).
-
-### Optional: Local Server
-
-For the best experience (especially with some browser security policies), serve via a local HTTP server:
-
-```bash
-# Python 3
-python -m http.server 8000
-
-# Node.js (if npx is available)
-npx serve .
+```text
+EVENT-MANAGEMENT/
+│── index.html
+│── login.html
+│── register.html
+│── booking.html
+│── contact.html
+│── css/
+│── js/
+│── images/
+└── README.md
 ```
 
-Then visit `http://localhost:8000`
+## How to Run
 
-## Browser Support
+1. Clone the repository.
 
-- Chrome 90+
-- Firefox 88+
-- Safari 14+
-- Edge 90+
+```bash
+git clone https://github.com/sreerajtech07-wq/EVENT-MANAGEMENT.git
+```
 
-## License
+2. Open the project folder.
 
-This project is created for educational and portfolio purposes. Images courtesy of [Unsplash](https://unsplash.com).
+3. Open `index.html` in your browser.
+
+Or visit the live website using the link above.
 
 ---
-
-Built with passion for extraordinary celebrations. **Luxe Events © 2026**
+Made for educational purposes. **Luxe Events © 2026**
