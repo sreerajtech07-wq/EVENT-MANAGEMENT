@@ -22,6 +22,9 @@
   <link rel="stylesheet" href="css/styles.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- flowbite -->
+   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
   <script src="js/main.js" defer></script>
   <script src="js/animations.js" defer></script>
 </head>
@@ -73,9 +76,10 @@
       <div class="hero-bg" style="background-image: url('./images/keroro_gayoung-wedding-3016803.jpg');" role="img" aria-label="Elegant event venue with ambient lighting"></div>
       <div class="hero-overlay"></div>
 
-      <div class="floating-element w-64 h-64 top-20 right-10"></div>
+      <!-- golden shade on the banner image  -->
+      <!-- <div class="floating-element w-64 h-64 top-20 right-10"></div>
       <div class="floating-element w-48 h-48 bottom-32 left-10"></div>
-      <div class="floating-element w-32 h-32 top-1/2 left-1/3"></div>
+      <div class="floating-element w-32 h-32 top-1/2 left-1/3"></div> -->
 
       <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pt-24">
         <div class="max-w-3xl">
@@ -104,44 +108,59 @@
 
     <!-- ========== ABOUT ========== -->
     <section id="about" class="about-section section-padding" aria-labelledby="about-heading">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class=" px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div class="about-image relative">
+            <figure class="relative  transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
             <img src="https://plus.unsplash.com/premium_photo-1682092632793-c7d75b23718e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Professional event planners coordinating a luxury wedding setup" class="rounded-2xl shadow-2xl w-full h-[400px] lg:h-[500px] object-cover" loading="lazy">
             <div class="absolute -bottom-6 -right-6 glass-card rounded-xl p-6 hidden sm:block">
               <p class="font-display text-3xl font-bold text-gradient">12+</p>
               <p class="text-sm" style="color: var(--text-secondary);">Years of Excellence</p>
             </div>
+            </figure>
           </div>
-          <div class="about-content">
+          <div class="about-content mx-70">
             <span class="section-label gsap-reveal">About Us</span>
             <h2 id="about-heading" class="section-title gsap-reveal">Elevating Every Celebration Since 2012</h2>
             <p class="section-subtitle mb-8 gsap-reveal">
               Luxe Events is a premier event management company dedicated to creating unforgettable experiences. Our team of seasoned professionals brings creativity, precision, and passion to every project.
             </p>
 
-            <div class="space-y-6">
-              <div class="gsap-reveal glass-card rounded-xl p-5">
+            <div class="flex">
+              <div class="gsap-reveal rounded-xl p-5 mb-6">
+                <img src="./images/keroro_gayoung-wedding-3016803.jpg" class="rounded-full w-36 h-36" alt="">
                 <h3 class="font-display text-lg font-semibold mb-2 flex items-center gap-2">
                   <span style="color: var(--accent-gold);">◆</span> Our Mission
                 </h3>
                 <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">To deliver exceptional event experiences that exceed expectations, creating lasting memories through innovative design and flawless execution.</p>
               </div>
-              <div class="gsap-reveal glass-card rounded-xl p-5">
+              <div class="gsap-reveal rounded-xl p-5 mb-6">
+                <img src="./images/keroro_gayoung-wedding-3016803.jpg" class="rounded-full w-36 h-36" alt="">
                 <h3 class="font-display text-lg font-semibold mb-2 flex items-center gap-2">
-                  <span style="color: var(--accent-champagne);">◆</span> Our Vision
+                  <span style="color: var(--accent-gold);">◆</span> Our Mission
                 </h3>
-                <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">To be the most trusted name in luxury event management, setting industry standards for creativity, professionalism, and client satisfaction worldwide.</p>
+                <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">To deliver exceptional event experiences that exceed expectations, creating lasting memories through innovative design and flawless execution.</p>
               </div>
-              <div class="gsap-reveal glass-card rounded-xl p-5">
+              </div>
+              <div class="flex">
+              <div class="gsap-reveal rounded-xl p-5 mb-6">
+                <img src="./images/keroro_gayoung-wedding-3016803.jpg" class="rounded-full w-36 h-36" alt="">
                 <h3 class="font-display text-lg font-semibold mb-2 flex items-center gap-2">
-                  <span style="color: var(--accent-gold-light);">◆</span> Why Choose Us
+                  <span style="color: var(--accent-gold);">◆</span> Our Mission
                 </h3>
-                <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">Award-winning team, personalized service, vendor partnerships with top-tier suppliers, and a proven track record of 2,500+ successful events.</p>
+                <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">To deliver exceptional event experiences that exceed expectations, creating lasting memories through innovative design and flawless execution.</p>
+              </div>
+              <div class="gsap-reveal rounded-xl p-5 mb-6">
+                <img src="./images/keroro_gayoung-wedding-3016803.jpg" class="rounded-full w-36 h-36" alt="">
+                <h3 class="font-display text-lg font-semibold mb-2 flex items-center gap-2">
+                  <span style="color: var(--accent-gold);">◆</span> Our Mission
+                </h3>
+                <p style="color: var(--text-secondary);" class="text-sm leading-relaxed">To deliver exceptional event experiences that exceed expectations, creating lasting memories through innovative design and flawless execution.</p>
+              </div>
+              </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </section>
 
