@@ -1,12 +1,5 @@
 
 
-/**
- * ============================================
- * Luxe Events — Premium Event Management
- * A sophisticated, gold-accented design system
- * ============================================
- */
-
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 /* ============================================
@@ -61,9 +54,9 @@ html.light {
   --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
 }
 
-/* ============================================
-   2. RESET & BASE STYLES
-   ============================================ */
+
+   /*  RESET & BASE STYLES */
+
 *, *::before, *::after {
   box-sizing: border-box;
 }
