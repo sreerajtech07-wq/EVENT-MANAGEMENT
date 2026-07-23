@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Events · Asquare</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Flowbite -->
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <style>
+    /* ===== THEME ===== */
+    :root {
+      --bg-primary: #0A0A0A;
+      --bg-secondary: #141414;
+      --bg-card: rgba(20, 20, 20, 0.75);
+      --text-primary: #FAFAF9;
+      --text-secondary: #A8A29E;
+      --text-muted: #78716C;
+      --accent-gold: #D4AF37;
+      --accent-gold-light: #F5D061;
+      --accent-gold-dark: #B8860B;
+      --glass-border: rgba(212, 175, 55, 0.15);
+      --glass-bg: rgba(10, 10, 10, 0.88);
+      --shadow-soft: 0 8px 32px rgba(0,0,0,0.5);
+      --shadow-glow: 0 0 40px rgba(212,175,55,0.2);
+      --gradient-primary: linear-gradient(135deg, #B8860B 0%, #D4AF37 45%, #F5D061 100%);
+      --gradient-subtle: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(184,134,11,0.06) 100%);
+      --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    html.light {
+      --bg-primary: #FAF9F6;
+      --bg-secondary: #FFFFFF;
+      --bg-card: rgba(255,255,255,0.9);
+      --text-primary: #0A0A0A;
+      --text-secondary: #57534E;
+      --text-muted: #A8A29E;
+      --glass-bg: rgba(255,255,255,0.92);
+      --glass-border: rgba(212,175,55,0.2);
+      --shadow-soft: 0 8px 32px rgba(10,10,10,0.08);
+      --shadow-glow: 0 0 40px rgba(212,175,55,0.15);
+    }
+    * { box-sizing: border-box; margin:0; padding:0; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      transition: background-color 0.5s var(--transition-smooth), color 0.5s var(--transition-smooth);
+      padding: 2rem 1rem 4rem;
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    h1,h2,h3,h4 { font-family: 'Cinzel', serif; letter-spacing: 0.02em; }
+    .font-display { font-family: 'Cinzel', serif; letter-spacing: 0.04em; }
+    .text-gradient { background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .glass-card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--glass-border); box-shadow: var(--shadow-soft); }
+    .section-padding { padding: 3rem 0; }
+    .section-label { display: inline-block; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-gold); margin-bottom: 0.75rem; }
+    .section-title { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 700; line-height: 1.2; margin-bottom: 0.75rem; }
+    .section-subtitle { font-size: 1rem; color: var(--text-secondary); max-width: 600px; line-height: 1.7; margin-left: auto; margin-right: auto; }
+    .btn-primary {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.65rem 1.8rem; background: var(--gradient-primary); color: #fff; font-weight: 600;
+      border-radius: 9999px; border: none; cursor: pointer; transition: all 0.3s; text-decoration: none;
+      font-size: 0.9rem;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-glow); }
+    .btn-outline {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      padding: 0.65rem 1.8rem; background: transparent; color: var(--text-primary);
+      border: 2px solid var(--glass-border); border-radius: 9999px; font-weight: 600;
+      transition: all 0.3s; text-decoration: none; cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .btn-outline:hover { border-color: var(--accent-gold); background: rgba(212,175,55,0.08); }
+    /* pricing */
+    .pricing-card { padding: 1.5rem; border-radius: 1.25rem; background: var(--bg-card); border: 1px solid var(--glass-border); transition: transform 0.4s, box-shadow 0.4s; }
+    .pricing-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-soft); }
+    .pricing-card.featured { border-color: var(--accent-gold); background: linear-gradient(135deg, rgba(212,175,55,0.12) 0%, rgba(184,134,11,0.06) 100%); transform: scale(1.02); z-index: 2; }
+    .pricing-card.featured:hover { transform: scale(1.02) translateY(-6px); box-shadow: var(--shadow-glow); }
+    .pricing-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); padding: 0.2rem 1rem; background: var(--gradient-primary); color: #fff; font-size: 0.65rem; font-weight: 700; border-radius: 9999px; }
+    .pricing-price { font-family: 'Cinzel', serif; font-size: 2.4rem; font-weight: 700; line-height: 1; }
+    .pricing-features li { display: flex; align-items: center; gap: 0.6rem; padding: 0.3rem 0; color: var(--text-secondary); font-size: 0.85rem; }
+    /* service cards - 5+4 centered layout */
+    .service-grid-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .service-grid-bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .service-card-compact {
+      background: var(--bg-card);
+      border: 1px solid var(--glass-border);
+      border-radius: 1rem;
+      padding: 0.75rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .service-card-compact:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-glow);
+    }
+    .service-card-compact img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-card-compact h4 {
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .service-card-compact p {
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+    }
+    /* gallery carousel */
+    .gallery-carousel-slide { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; padding: 0.5rem; }
+    .gallery-carousel-slide .gallery-item { aspect-ratio: 1; border-radius: 0.75rem; overflow: hidden; position: relative; cursor: pointer; }
+    .gallery-carousel-slide .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .gallery-carousel-slide .gallery-item:hover img { transform: scale(1.05); }
+    .gallery-carousel-slide .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 0.75rem; opacity: 0; transition: opacity 0.4s; }
+    .gallery-carousel-slide .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-carousel-slide .gallery-category { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-gold); }
+    /* back button */
+    .back-home { display: inline-flex; align-items: center; gap: 0.5rem; color: var(--text-secondary); text-decoration: none; font-weight: 500; transition: color 0.3s; margin-bottom: 1.5rem; }
+    .back-home:hover { color: var(--accent-gold); }
+    /* theme toggle */
+    .theme-toggle { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border: 1px solid var(--glass-border); cursor: pointer; color: var(--text-primary); position: relative; }
+    .theme-toggle .icon-sun, .theme-toggle .icon-moon { position: absolute; transition: opacity 0.3s, transform 0.3s; }
+    html:not(.light) .theme-toggle .icon-sun { opacity: 0; transform: rotate(-90deg) scale(0.5); }
+    html:not(.light) .theme-toggle .icon-moon { opacity: 1; transform: rotate(0) scale(1); }
+    html.light .theme-toggle .icon-sun { opacity: 1; transform: rotate(0) scale(1); }
+    html.light .theme-toggle .icon-moon { opacity: 0; transform: rotate(90deg) scale(0.5); }
+    /* utils */
+    .text-center { text-align: center; }
+    .mx-auto { margin-left: auto; margin-right: auto; }
+    .max-w-5xl { max-width: 64rem; }
+    .max-w-4xl { max-width: 56rem; }
+    .max-w-2xl { max-width: 42rem; }
+    .w-full { width: 100%; }
+    .gap-8 { gap: 2rem; }
+    .grid { display: grid; }
+    .md\:grid-cols-3 { grid-template-columns: 1fr; }
+    @media (min-width: 768px) { .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); } }
+    .flex { display: flex; }
+    .flex-wrap { flex-wrap: wrap; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .mt-6 { margin-top: 1.5rem; }
+    .mb-10 { margin-bottom: 2rem; }
+    .mb-12 { margin-bottom: 2.5rem; }
+    .mb-6 { margin-bottom: 1.5rem; }
+    .mb-4 { margin-bottom: 1rem; }
+    .mb-3 { margin-bottom: 0.75rem; }
+    .space-y-1 > * + * { margin-top: 0.25rem; }
+    .p-6 { padding: 1.5rem; }
+    .p-4 { padding: 1rem; }
+    .rounded-2xl { border-radius: 1rem; }
+    .relative { position: relative; }
+
+    /* responsive */
+    @media (max-width: 768px) {
+      .service-grid { grid-template-columns: repeat(3, 1fr); }
+      .service-grid-bottom { grid-template-columns: repeat(2, 1fr); max-width: 100%; }
+    }
+    @media (max-width: 480px) {
+      .service-grid { grid-template-columns: repeat(2, 1fr); }
+      .service-grid-bottom { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== BACK + THEME TOGGLE ===== -->
+<div class="flex flex-wrap items-center justify-between" style="margin-bottom:1rem;">
+  <a href="#" class="back-home" onclick="history.back(); return false;">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    Back to Home
+  </a>
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+    <svg class="icon-sun w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+    <svg class="icon-moon w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+  </button>
+</div>
+
+<!-- ===== HEADING ===== -->
+<div class="text-center" style="padding: 0.5rem 0 1rem;">
+  <h1 class="font-display text-4xl sm:text-5xl font-bold">
+    <span class="text-gradient">Personal Events</span>
+  </h1>
+  <div style="width:60px; height:3px; background:var(--gradient-primary); margin:0.5rem auto; border-radius:4px;"></div>
+</div>
+
+<!-- ===== ABOUT US ===== -->
+<section id="about" class="section-padding" style="padding-top:0.5rem;">
+  <div class="max-w-4xl mx-auto text-center">
+    <span class="section-label">About Us</span>
+    <h2 class="section-title">Celebrating Life's <span class="text-gradient">Milestones</span></h2>
+    <p class="section-subtitle" style="max-width:700px;">
+      At Asquare Events, we specialize in personal celebrations — from weddings and engagements to baby showers and retirement parties. 
+      Every event is crafted with warmth, elegance, and meticulous attention to detail.
+    </p>
+    <div class="glass-card rounded-2xl p-5 mt-6 max-w-2xl mx-auto">
+      <p class="text-sm leading-relaxed" style="color:var(--text-secondary);">
+        We believe that every personal event tells a story. Our team brings creativity, precision, and a personal touch to make your moments truly unforgettable.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES (5+4 centered layout) ===== -->
+<section class="section-padding" style="background: var(--gradient-subtle); border-radius: 1.5rem; padding: 2rem 1.5rem; margin: 0.5rem 0;">
+  <div class="text-center mb-8">
+    <span class="section-label">Our Services</span>
+    <h2 class="section-title">Personal Events</h2>
+    <p class="section-subtitle">Explore our signature celebrations.</p>
+  </div>
+  <div class="service-grid-wrapper">
+    <!-- Top row: 5 cards -->
+    <div class="service-grid" id="serviceGridTop">
+      <!-- injected by JS -->
+    </div>
+    <!-- Bottom row: 4 cards centered -->
+    <div class="service-grid-bottom" id="serviceGridBottom">
+      <!-- injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY CAROUSEL ===== -->
+<section class="section-padding" style="padding: 2rem 0;">
+  <div class="text-center mb-8">
+    <span class="section-label">Moments</span>
+    <h2 class="section-title">Event Gallery</h2>
+    <p class="section-subtitle">Browse through our personal event portfolio.</p>
+  </div>
+
+  <!-- Flowbite Carousel for Gallery -->
+  <div id="gallery-carousel" class="relative w-full" data-carousel="slide">
+    <div class="relative h-64 overflow-hidden rounded-2xl md:h-72">
+      <div class="flex w-full h-full transition-transform duration-700 ease-in-out" data-carousel-items>
+        <!-- slides injected by JS (each slide = 3 images) -->
+      </div>
+    </div>
+    <button type="button" class="absolute top-1/2 left-2 z-30 -translate-y-1/2 bg-black/30 hover:bg-black/50 rounded-full p-2 text-white" data-carousel-prev>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+    </button>
+    <button type="button" class="absolute top-1/2 right-2 z-30 -translate-y-1/2 bg-black/30 hover:bg-black/50 rounded-full p-2 text-white" data-carousel-next>
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="section-padding" style="background: var(--gradient-subtle); border-radius: 1.5rem; padding: 2rem 1.5rem; margin: 0.5rem 0;">
+  <div class="text-center mb-10">
+    <span class="section-label">Investment</span>
+    <h2 class="section-title">Pricing Packages</h2>
+    <p class="section-subtitle">Choose a plan that fits your celebration.</p>
+  </div>
+  <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <!-- Silver -->
+    <div class="pricing-card relative">
+      <h3 class="font-display text-xl font-semibold">Silver</h3>
+      <p class="text-sm mb-3" style="color:var(--text-secondary);">Essentials</p>
+      <p class="pricing-price mb-4">$1,499</p>
+      <ul class="pricing-features space-y-1 mb-6">
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 50 guests</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic décor</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Coordinator</li>
+      </ul>
+      <a href="#" class="btn-outline w-full text-center text-sm">Get Started</a>
+    </div>
+    <!-- Gold -->
+    <div class="pricing-card featured relative">
+      <span class="pricing-badge">Most Popular</span>
+      <h3 class="font-display text-xl font-semibold mt-2">Gold</h3>
+      <p class="text-sm mb-3" style="color:var(--text-secondary);">Signature</p>
+      <p class="pricing-price mb-4">$3,999</p>
+      <ul class="pricing-features space-y-1 mb-6">
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 120 guests</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Premium florals</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photography</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full-day coverage</li>
+      </ul>
+      <a href="#" class="btn-primary w-full text-center text-sm">Book Gold</a>
+    </div>
+    <!-- Platinum -->
+    <div class="pricing-card relative">
+      <h3 class="font-display text-xl font-semibold">Platinum</h3>
+      <p class="text-sm mb-3" style="color:var(--text-secondary);">Luxury</p>
+      <p class="pricing-price mb-4">$7,999</p>
+      <ul class="pricing-features space-y-1 mb-6">
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited guests</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke design</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photo+video</li>
+        <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi-day coverage</li>
+      </ul>
+      <a href="#" class="btn-outline w-full text-center text-sm">Go Platinum</a>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="text-align:center; padding: 2rem 0 0.5rem; border-top:1px solid var(--glass-border); margin-top:1.5rem;">
+  <p style="color:var(--text-muted); font-size:0.8rem;">&copy; 2026 Asquare Events · Personal celebrations crafted with heart.</p>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script src="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.js"></script>
+<script>
+  (function() {
+    // ----- THEME TOGGLE -----
+    const toggle = document.getElementById('theme-toggle');
+    const html = document.documentElement;
+    toggle.addEventListener('click', () => {
+      html.classList.toggle('light');
+    });
+
+    // ----- SERVICES (5 top, 4 bottom, centered) -----
+    const services = [
+      { name: 'Wedding', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80', desc: 'Elegant ceremonies' },
+      { name: 'Engagement', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80', desc: 'Romantic proposals' },
+      { name: 'Reception', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80', desc: 'Lavish dinner & dance' },
+      { name: 'Birthday', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80', desc: 'Fun celebrations' },
+      { name: 'Anniversary', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80', desc: 'Milestone love' },
+      { name: 'Baby Shower', img: 'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=400&q=80', desc: 'Joyful welcome' },
+      { name: 'Naming', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80', desc: 'Sacred ceremony' },
+      { name: 'Housewarming', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80', desc: 'New beginnings' },
+      { name: 'Retirement', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80', desc: 'Celebrating legacy' }
+    ];
+
+    // Top 5
+    const top5 = services.slice(0, 5);
+    const bottom4 = services.slice(5, 9);
+
+    const topGrid = document.getElementById('serviceGridTop');
+    const bottomGrid = document.getElementById('serviceGridBottom');
+
+    if (topGrid) {
+      topGrid.innerHTML = top5.map(s => `
+        <div class="service-card-compact">
+          <img src="${s.img}" alt="${s.name}" loading="lazy" />
+          <h4 class="font-display">${s.name}</h4>
+          <p>${s.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    if (bottomGrid) {
+      bottomGrid.innerHTML = bottom4.map(s => `
+        <div class="service-card-compact">
+          <img src="${s.img}" alt="${s.name}" loading="lazy" />
+          <h4 class="font-display">${s.name}</h4>
+          <p>${s.desc}</p>
+        </div>
+      `).join('');
+    }
+
+    // ----- GALLERY CAROUSEL (3 images per slide) -----
+    const allGallery = [
+      { cat: 'Wedding', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80' },
+      { cat: 'Engagement', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80' },
+      { cat: 'Birthday', img: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80' },
+      { cat: 'Anniversary', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80' },
+      { cat: 'Baby Shower', img: 'https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=400&q=80' },
+      { cat: 'Naming', img: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80' },
+      { cat: 'Housewarming', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80' },
+      { cat: 'Retirement', img: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80' },
+      { cat: 'Reception', img: 'https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80' }
+    ];
+
+    // split into groups of 3
+    const slides = [];
+    for (let i = 0; i < allGallery.length; i += 3) {
+      slides.push(allGallery.slice(i, i + 3));
+    }
+
+    const carouselContainer = document.querySelector('#gallery-carousel [data-carousel-items]');
+    if (carouselContainer) {
+      carouselContainer.innerHTML = slides.map((group, idx) => `
+        <div class="min-w-full h-full flex items-center justify-center p-2" data-carousel-item${idx === 0 ? ' active' : ''}>
+          <div class="gallery-carousel-slide w-full">
+            ${group.map(item => `
+              <div class="gallery-item">
+                <img src="${item.img}" alt="${item.cat}" loading="lazy" />
+                <div class="gallery-overlay">
+                  <span class="gallery-category">${item.cat}</span>
+                </div>
+              </div>
+            `).join('')}
+            ${group.length < 3 ? Array(3 - group.length).fill(0).map(() => `
+              <div class="gallery-item" style="background:var(--bg-card);border:1px dashed var(--glass-border);display:flex;align-items:center;justify-content:center;color:var(--text-muted);font-size:0.8rem;">
+                <span>✨</span>
+              </div>
+            `).join('') : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+  })();
+</script>
+</body>
+</html>
