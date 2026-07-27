@@ -2,9 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-/* ============================================
-   1. CUSTOM PROPERTIES & THEMING
-   ============================================ */
+/* 1. CUSTOM PROPERTIES & THEMING */
 :root {
   /* Dark mode (default) */
   --bg-primary: #0A0A0A;
@@ -96,9 +94,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #0A0A0A;
 }
 
-/* ============================================
-   3. SCROLLBAR STYLING
-   ============================================ */
+/*   3. SCROLLBAR STYLING   */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -110,9 +106,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
 }
 
-/* ============================================
-   4. UTILITY CLASSES
-   ============================================ */
+/*  4. UTILITY CLASSES  */
 .font-display {
   font-family: 'Cinzel', Georgia, 'Times New Roman', serif;
   letter-spacing: 0.04em;
@@ -155,9 +149,7 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: var(--shadow-soft);
 }
 
-/* ============================================
-   5. BUTTONS
-   ============================================ */
+/*   5. BUTTONS  */
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -223,9 +215,7 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-/* ============================================
-   6. NAVIGATION
-   ============================================ */
+/*   6. NAVIGATION */
 .nav-link {
   position: relative;
   color: var(--text-secondary);
@@ -259,9 +249,7 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
 }
 
-/* ============================================
-   7. SECTION LAYOUTS
-   ============================================ */
+/*  7. SECTION LAYOUTS */
 .section-padding {
   padding: 6rem 0;
 }
@@ -296,9 +284,7 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
 }
 
-/* ============================================
-   8. HERO SECTION
-   ============================================ */
+/*  8. HERO SECTION */
 .hero-section {
   min-height: 100vh;
   position: relative;
@@ -407,9 +393,7 @@ html.light .hero-overlay {
   100% { opacity: 0; transform: translateX(-50%) translateY(12px); }
 }
 
-/* ============================================
-   9. SERVICE CARDS
-   ============================================ */
+/*  9. SERVICE CARDS */
 .service-card {
   position: relative;
   padding: 2rem;
@@ -459,9 +443,7 @@ html.light .hero-overlay {
   margin-bottom: 1.25rem;
 }
 
-/* ============================================
-   10. GALLERY
-   ============================================ */
+/*  10. GALLERY  */
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -559,9 +541,7 @@ html.light .hero-overlay {
   border-color: transparent;
 }
 
-/* ============================================
-   11. EVENT CARDS (Upcoming Events)
-   ============================================ */
+/*   11. EVENT CARDS (Upcoming Events)  */
 .event-card {
   border-radius: 1.25rem;
   overflow: hidden;
@@ -581,9 +561,7 @@ html.light .hero-overlay {
   object-fit: cover;
 }
 
-/* ============================================
-   12. PRICING CARDS
-   ============================================ */
+/* 12. PRICING CARDS */
 .pricing-card {
   position: relative;
   padding: 2.5rem 2rem;
@@ -647,9 +625,7 @@ html.light .hero-overlay {
   color: var(--accent-gold);
 }
 
-/* ============================================
-   13. TESTIMONIALS
-   ============================================ */
+/*  13. TESTIMONIALS */
 .testimonials-slider {
   overflow: hidden;
   position: relative;
@@ -699,9 +675,7 @@ html.light .hero-overlay {
   gap: 2px;
 }
 
-/* ============================================
-   14. COUNTERS (Stats Section)
-   ============================================ */
+/*  14. COUNTERS (Stats Section) */
 .counter-section {
   background: var(--gradient-subtle);
   border-top: 1px solid var(--glass-border);
@@ -723,9 +697,7 @@ html.light .hero-overlay {
   background-clip: text;
 }
 
-/* ============================================
-   15. FAQ ACCORDION
-   ============================================ */
+/*  15. FAQ ACCORDION */
 .faq-item {
   border: 1px solid var(--glass-border);
   border-radius: 1rem;
@@ -790,9 +762,7 @@ html.light .hero-overlay {
   font-size: 0.9375rem;
 }
 
-/* ============================================
-   16. CALL-TO-ACTION BANNER
-   ============================================ */
+/*  16. CALL-TO-ACTION BANNER */
 .cta-banner {
   position: relative;
   border-radius: 1.5rem;
@@ -815,9 +785,7 @@ html.light .hero-overlay {
                     radial-gradient(circle at 80% 50%, rgba(255,255,255,0.08) 0%, transparent 50%);
 }
 
-/* ============================================
-   17. FOOTER
-   ============================================ */
+/*  17. FOOTER */
 .footer-section {
   background: var(--bg-secondary);
   border-top: 1px solid var(--glass-border);
@@ -895,9 +863,7 @@ html.light .hero-overlay {
   transform: scale(1.05);
 }
 
-/* ============================================
-   18. FORMS
-   ============================================ */
+/*  18. FORMS */
 .form-group {
   margin-bottom: 1.25rem;
 }
@@ -1039,9 +1005,7 @@ html.light .form-input {
   font-weight: 700;
 }
 
-/* ============================================
-   19. AUTHENTICATION PAGES
-   ============================================ */
+/*  19. AUTHENTICATION PAGES */
 .auth-page {
   min-height: 100vh;
   display: flex;
@@ -1086,9 +1050,7 @@ html.light .form-input {
   box-shadow: var(--shadow-soft);
 }
 
-/* ============================================
-   20. MOBILE MENU
-   ============================================ */
+/*  20. MOBILE MENU */
 .mobile-menu {
   position: fixed;
   inset: 0;
@@ -1158,9 +1120,7 @@ html.light .mobile-menu {
   transform: translateY(50%) rotate(-45deg);
 }
 
-/* ============================================
-   21. MODAL / POPUP
-   ============================================ */
+/*  21. MODAL / POPUP */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -1210,9 +1170,7 @@ html.light .mobile-menu {
   font-size: 2rem;
 }
 
-/* ============================================
-   22. THEME TOGGLE (Dark / Light)
-   ============================================ */
+/*  22. THEME TOGGLE (Dark / Light)  */
 .theme-toggle {
   width: 44px;
   height: 44px;
@@ -1258,9 +1216,7 @@ html.light .theme-toggle .icon-moon {
   transform: rotate(90deg) scale(0.5);
 }
 
-/* ============================================
-   23. CONTACT MAP
-   ============================================ */
+/*  23. CONTACT MAP */
 .map-placeholder {
   width: 100%;
   height: 300px;
@@ -1284,9 +1240,7 @@ html.light .theme-toggle .icon-moon {
   filter: grayscale(30%) contrast(1.1);
 }
 
-/* ============================================
-   24. BOOKING PAGE HEADER
-   ============================================ */
+/*   24. BOOKING PAGE HEADER */
 .booking-page-header {
   padding-top: calc(var(--nav-height) + 4rem);
   padding-bottom: 3rem;
@@ -1295,9 +1249,7 @@ html.light .theme-toggle .icon-moon {
   border-bottom: 1px solid var(--glass-border);
 }
 
-/* ============================================
-   25. GSAP ANIMATION HELPERS
-   ============================================ */
+/*   25. GSAP ANIMATION */
 .gsap-reveal {
   opacity: 0;
   transform: translateY(40px);
@@ -1307,9 +1259,7 @@ html.light .theme-toggle .icon-moon {
   opacity: 0;
 }
 
-/* ============================================
-   26. RESPONSIVE FIXES
-   ============================================ */
+/*  26. RESPONSIVE FIXES */
 @media (max-width: 767px) {
   .pricing-card.featured {
     transform: scale(1);
