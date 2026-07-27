@@ -14,48 +14,113 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
   <script src="js/main.js" defer></script>
   <script src="js/animations.js" defer></script>
+  <style>
+    /* matching booking.html style */
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #A8A29E;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+      font-size: 0.95rem;
+    }
+    .back-home:hover {
+      color: #D4AF37;
+    }
+    .header-back-row {
+      padding: 1.25rem 1.5rem 0 1.5rem;
+      max-width: 1280px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* Theme toggle button */
+    .theme-toggle-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border-radius: 9999px;
+      border: 1px solid rgba(212, 175, 55, 0.2);
+      background: rgba(20, 20, 20, 0.5);
+      color: #A8A29E;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.85rem;
+    }
+    .theme-toggle-btn:hover {
+      border-color: #D4AF37;
+      color: #D4AF37;
+    }
+    body.light-mode .theme-toggle-btn {
+      background: rgba(255, 255, 255, 0.8);
+      color: #57534E;
+    }
+    body.light-mode .theme-toggle-btn:hover {
+      color: #D4AF37;
+    }
+
+    /* Light mode overrides */
+    body.light-mode {
+      background-color: #FAF9F6;
+      color: #0A0A0A;
+    }
+    body.light-mode .glass-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+      border-color: rgba(212, 175, 55, 0.15) !important;
+    }
+    body.light-mode .form-input {
+      background: rgba(255, 255, 255, 0.9) !important;
+      color: #0A0A0A !important;
+      border-color: rgba(212, 175, 55, 0.2) !important;
+    }
+    body.light-mode .form-input::placeholder {
+      color: #A8A29E !important;
+    }
+    body.light-mode .auth-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+    body.light-mode .section-label {
+      color: #B8860B;
+    }
+    body.light-mode .text-secondary {
+      color: #57534E !important;
+    }
+    body.light-mode .text-gradient {
+      background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Navbar -->
-  <nav id="navbar" class="glass-nav fixed top-0 left-0 right-0 z-50 scrolled" role="navigation" aria-label="Main navigation">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-[72px]">
-        <a href="index.html" class="font-display text-2xl font-bold text-gradient">Asquare Events</a>
-        <div class="hidden md:flex items-center gap-8">
-          <a href="index.html" class="nav-link">Home</a>
-          <a href="login.html" class="nav-link">Login</a>
-          <a href="register.html" class="nav-link">Register</a>
-          <a href="booking.html" class="nav-link">Booking</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-        <div class="flex items-center gap-3">
-          <button id="theme-toggle" class="theme-toggle relative" aria-label="Toggle dark mode">
-            <svg class="icon-sun w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-            <svg class="icon-moon w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
-          </button>
-          <button id="hamburger" class="hamburger md:hidden" aria-label="Open menu"><span></span><span></span><span></span></button>
-        </div>
-      </div>
+  <!-- ===== HEADER with BACK TO HOME & THEME TOGGLE ===== -->
+  <header>
+    <!-- header row with back button and theme toggle -->
+    <div class="header-back-row">
+      <a href="index.html" class="back-home">
+        <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+        Back to Home
+      </a>
+      <button id="theme-toggle-btn" class="theme-toggle-btn" aria-label="Toggle dark/light mode">
+        <svg id="theme-icon-sun" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        <svg id="theme-icon-moon" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="display:none;"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
+        <span id="theme-label">Light Mode</span>
+      </button>
     </div>
-  </nav>
+  </header>
 
-  <div id="mobile-menu" class="mobile-menu">
-    <a href="index.html" class="nav-link">Home</a>
-    <a href="login.html" class="nav-link">Login</a>
-    <a href="register.html" class="nav-link">Register</a>
-    <a href="booking.html" class="nav-link">Booking</a>
-    <a href="contact.html" class="nav-link">Contact</a>
-  </div>
+  <!-- ===== ORIGINAL NAV REMOVED ===== -->
 
-  <main class="auth-page">
-    <!-- Animated Background -->
-    <!-- <div class="auth-bg" aria-hidden="true">
-      <div class="auth-bg-shape w-96 h-96 top-10 left-10" style="background: #D4AF37;"></div>
-      <div class="auth-bg-shape w-80 h-80 bottom-20 right-10" style="background: #B8860B; animation-delay: -3s;"></div>
-      <div class="auth-bg-shape w-64 h-64 top-1/2 left-1/2" style="background: #F5D061; animation-delay: -6s;"></div>
-    </div> -->
-
+  <main class="auth-page" style="padding-top: 1.5rem;">
     <div class="auth-card">
       <div class="text-center mb-8">
         <h1 class="font-display text-3xl font-bold mb-2">Welcome Back</h1>
@@ -97,6 +162,41 @@
       </p>
     </div>
   </main>
+
+  <script>
+    // Theme toggle functionality
+    (function() {
+      const toggleBtn = document.getElementById('theme-toggle-btn');
+      const iconSun = document.getElementById('theme-icon-sun');
+      const iconMoon = document.getElementById('theme-icon-moon');
+      const label = document.getElementById('theme-label');
+
+      // Check for saved theme preference
+      if (localStorage.getItem('theme') === 'light') {
+        document.body.classList.add('light-mode');
+        iconSun.style.display = 'none';
+        iconMoon.style.display = 'block';
+        label.textContent = 'Dark Mode';
+      }
+
+      toggleBtn.addEventListener('click', function() {
+        document.body.classList.toggle('light-mode');
+        const isLight = document.body.classList.contains('light-mode');
+        
+        if (isLight) {
+          iconSun.style.display = 'none';
+          iconMoon.style.display = 'block';
+          label.textContent = 'Dark Mode';
+          localStorage.setItem('theme', 'light');
+        } else {
+          iconSun.style.display = 'block';
+          iconMoon.style.display = 'none';
+          label.textContent = 'Light Mode';
+          localStorage.setItem('theme', 'dark');
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

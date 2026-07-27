@@ -3,22 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Personal Events · Asquare</title>
+  <title>Entertainment Events · Asquare</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
   
   <style>
-    /* Simple styles - no root variables */
+    /* ----- reset & base ----- */
+    * { box-sizing: border-box; }
     body {
       font-family: 'Montserrat', system-ui, sans-serif;
       background-color: #0A0A0A;
       color: #FAFAF9;
       padding: 2rem 1rem 4rem;
+      transition: background 0.2s, color 0.2s;
     }
-    
-    /* Light mode */
     body.light-mode {
       background-color: #FAF9F6;
       color: #0A0A0A;
@@ -38,17 +38,16 @@
     body.light-mode .bg-gold-soft {
       background: rgba(212, 175, 55, 0.08) !important;
     }
+    body.light-mode .btn-outline-gold {
+      color: #0A0A0A;
+    }
     
-    /* Fonts */
+    /* fonts */
     .font-display {
       font-family: 'Cinzel', serif;
       letter-spacing: 0.04em;
     }
-    
-    /* Gold text */
-    .text-gold {
-      color: #D4AF37;
-    }
+    .text-gold { color: #D4AF37; }
     .text-gradient {
       background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
       -webkit-background-clip: text;
@@ -56,7 +55,7 @@
       background-clip: text;
     }
     
-    /* Glass card */
+    /* glass */
     .glass-card {
       background: rgba(20, 20, 20, 0.75);
       backdrop-filter: blur(16px);
@@ -64,7 +63,7 @@
       box-shadow: 0 8px 32px rgba(0,0,0,0.5);
     }
     
-    /* Buttons */
+    /* buttons */
     .btn-gold {
       background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
       color: #fff;
@@ -101,11 +100,8 @@
       background: rgba(212, 175, 55, 0.08);
       color: #FAFAF9;
     }
-    body.light-mode .btn-outline-gold {
-      color: #0A0A0A;
-    }
     
-    /* Service cards - 3 per row */
+    /* service cards – entertainment focus */
     .service-card {
       background: rgba(20, 20, 20, 0.75);
       border: 1px solid rgba(212, 175, 55, 0.15);
@@ -138,7 +134,7 @@
       margin-bottom: 0;
     }
     
-    /* Pricing cards */
+    /* pricing */
     .pricing-card {
       padding: 1.5rem;
       border-radius: 1.25rem;
@@ -196,7 +192,7 @@
       color: #57534E;
     }
     
-    /* Gallery */
+    /* gallery carousel */
     .gallery-slide {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -241,7 +237,7 @@
       color: #D4AF37;
     }
     
-    /* Theme toggle */
+    /* theme toggle */
     .theme-toggle {
       width: 40px;
       height: 40px;
@@ -263,7 +259,6 @@
       color: #0A0A0A;
     }
     
-    /* Back button */
     .back-home {
       display: inline-flex;
       align-items: center;
@@ -277,7 +272,6 @@
       color: #D4AF37;
     }
     
-    /* Utilities */
     .bg-gold-soft {
       background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(184, 134, 11, 0.06));
       border-radius: 1.5rem;
@@ -301,7 +295,6 @@
       color: #A8A29E;
     }
     
-    /* Carousel */
     .carousel-inner {
       padding: 0.5rem;
       background: rgba(20, 20, 20, 0.3);
@@ -346,7 +339,7 @@
 <!-- ===== HEADING ===== -->
 <div style="text-align:center; padding:0.5rem 0 1rem;">
   <h1 class="font-display" style="font-size:clamp(2rem, 5vw, 3rem); font-weight:700;">
-    <span class="text-gradient">Personal Events</span>
+    <span class="text-gradient">Entertainment Events</span>
   </h1>
   <div class="gold-line"></div>
 </div>
@@ -354,97 +347,102 @@
 <!-- ===== ABOUT ===== -->
 <section style="padding:2rem 0 1rem;">
   <div style="max-width:56rem; margin:0 auto; text-align:center;">
-    <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">About Us</div>
-    <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Celebrating Life's <span class="text-gradient">Milestones</span></h2>
+    <div class="section-label">About</div>
+    <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Live · Laugh · <span class="text-gradient">Perform</span></h2>
     <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">
-      At Asquare Events, we specialize in personal celebrations — from weddings and engagements to baby showers and retirement parties.
-      Every event is crafted with warmth, elegance, and meticulous attention to detail.
+      From high‑energy fashion shows and DJ nights to comedy, music concerts, and theatre – we produce entertainment events that leave audiences spellbound.
     </p>
     <div class="glass-card" style="padding:1.25rem; margin-top:1.5rem; max-width:42rem; margin-left:auto; margin-right:auto; border-radius:1rem;">
       <p style="font-size:0.9rem; line-height:1.6; color:#A8A29E; margin:0;">
-        We believe that every personal event tells a story. Our team brings creativity, precision, and a personal touch to make your moments truly unforgettable.
+        Every show is curated with state‑of‑the‑art production, creative storytelling, and flawless execution. Your stage, our passion.
       </p>
     </div>
   </div>
 </section>
 
-<!-- ===== SERVICES ===== -->
+<!-- ===== SERVICES : 9 ENTERTAINMENT EVENTS ===== -->
 <section class="bg-gold-soft" style="margin:0.5rem 0;">
   <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
     <div style="text-align:center; margin-bottom:2rem;">
-      <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Our Services</div>
-      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Personal Events</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Explore our signature celebrations.</p>
+      <div class="section-label">Our Entertainment Roster</div>
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Shows & Experiences</h2>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Nine electrifying genres – one stage.</p>
     </div>
 
-    <!-- 9 services - 3 per row -->
+    <!-- 9 cards – 3 per row (exact events) -->
     <div class="row g-3 justify-content-center" style="max-width:900px; margin:0 auto;">
-      <!-- Row 1: Wedding, Engagement, Reception -->
+      <!-- 1. Fashion Show -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Wedding" loading="lazy" />
-          <h5 class="font-display">Wedding</h5>
-          <p>Elegant ceremonies & receptions</p>
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Fashion Show" loading="lazy" />
+          <h5 class="font-display">Fashion Show</h5>
+          <p>Runway · style · glamour</p>
         </div>
       </div>
+      <!-- 2. DJ Night -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Engagement" loading="lazy" />
-          <h5 class="font-display">Engagement</h5>
-          <p>Romantic proposals & parties</p>
+          <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb2?w=400&q=80" alt="DJ Night" loading="lazy" />
+          <h5 class="font-display">DJ Night</h5>
+          <p>Beats · lights · energy</p>
         </div>
       </div>
+      <!-- 3. Comedy Show -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80" alt="Reception" loading="lazy" />
-          <h5 class="font-display">Reception</h5>
-          <p>Lavish dinner & dance</p>
-        </div>
-      </div>
-
-      <!-- Row 2: Birthday, Anniversary, Baby Shower -->
-      <div class="col-6 col-md-4">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" alt="Birthday" loading="lazy" />
-          <h5 class="font-display">Birthday</h5>
-          <p>Fun & personalized celebrations</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Anniversary" loading="lazy" />
-          <h5 class="font-display">Anniversary</h5>
-          <p>Milestone love stories</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=400&q=80" alt="Baby Shower" loading="lazy" />
-          <h5 class="font-display">Baby Shower</h5>
-          <p>Joyful welcome for little ones</p>
+          <img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=400&q=80" alt="Comedy Show" loading="lazy" />
+          <h5 class="font-display">Comedy Show</h5>
+          <p>Laughter · wit · stand‑up</p>
         </div>
       </div>
 
-      <!-- Row 3: Naming, Housewarming, Retirement -->
+      <!-- 4. Music Concert -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Naming" loading="lazy" />
-          <h5 class="font-display">Naming</h5>
-          <p>Sacred & heartwarming ceremony</p>
+          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&q=80" alt="Music Concert" loading="lazy" />
+          <h5 class="font-display">Music Concert</h5>
+          <p>Live bands · arena</p>
         </div>
       </div>
+      <!-- 5. Live Performance -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80" alt="Housewarming" loading="lazy" />
-          <h5 class="font-display">Housewarming</h5>
-          <p>New beginnings, new home</p>
+          <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="Live Performance" loading="lazy" />
+          <h5 class="font-display">Live Performance</h5>
+          <p>Artists · raw emotion</p>
         </div>
       </div>
+      <!-- 6. Talent Show -->
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Retirement" loading="lazy" />
-          <h5 class="font-display">Retirement</h5>
-          <p>Celebrating a legacy</p>
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" alt="Talent Show" loading="lazy" />
+          <h5 class="font-display">Talent Show</h5>
+          <p>Discovery · spotlight</p>
+        </div>
+      </div>
+
+      <!-- 7. Dance Show -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=400&q=80" alt="Dance Show" loading="lazy" />
+          <h5 class="font-display">Dance Show</h5>
+          <p>Choreography · rhythm</p>
+        </div>
+      </div>
+      <!-- 8. Theater Play -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&q=80" alt="Theater Play" loading="lazy" />
+          <h5 class="font-display">Theater Play</h5>
+          <p>Drama · script · stage</p>
+        </div>
+      </div>
+      <!-- 9. (extra) – we already have 8, but we add a 9th to keep 3x3 : "Immersive Show" as a bonus entertainment -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Immersive Show" loading="lazy" />
+          <h5 class="font-display">Immersive Show</h5>
+          <p>360° · experience</p>
         </div>
       </div>
     </div>
@@ -455,80 +453,62 @@
 <section style="padding:2rem 0;">
   <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
     <div style="text-align:center; margin-bottom:2rem;">
-      <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Moments</div>
-      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Event Gallery</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Browse through our personal event portfolio.</p>
+      <div class="section-label">Moments</div>
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Entertainment Gallery</h2>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Highlights from our shows.</p>
     </div>
 
     <div style="max-width:900px; margin:0 auto;">
       <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
-          <!-- Slide 1 -->
+          <!-- Slide 1: Fashion, DJ, Comedy -->
           <div class="carousel-item active">
             <div class="gallery-slide">
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Wedding" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Wedding</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Fashion Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Fashion Show</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Engagement" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Engagement</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb2?w=400&q=80" alt="DJ Night" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">DJ Night</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&q=80" alt="Birthday" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Birthday</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=400&q=80" alt="Comedy Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Comedy Show</span></div>
               </div>
             </div>
           </div>
-          <!-- Slide 2 -->
+          <!-- Slide 2: Music, Live, Talent -->
           <div class="carousel-item">
             <div class="gallery-slide">
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80" alt="Anniversary" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Anniversary</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&q=80" alt="Music Concert" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Music Concert</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=400&q=80" alt="Baby Shower" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Baby Shower</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="Live Performance" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Live Performance</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?w=400&q=80" alt="Naming" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Naming</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" alt="Talent Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Talent Show</span></div>
               </div>
             </div>
           </div>
-          <!-- Slide 3 -->
+          <!-- Slide 3: Dance, Theater, Immersive -->
           <div class="carousel-item">
             <div class="gallery-slide">
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80" alt="Housewarming" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Housewarming</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=400&q=80" alt="Dance Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Dance Show</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=400&q=80" alt="Retirement" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Retirement</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&q=80" alt="Theater Play" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Theater Play</span></div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=400&q=80" alt="Reception" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Reception</span>
-                </div>
+                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Immersive Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Immersive Show</span></div>
               </div>
             </div>
           </div>
@@ -550,9 +530,9 @@
 <section class="bg-gold-soft" style="margin:0.5rem 0;">
   <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
     <div style="text-align:center; margin-bottom:2rem;">
-      <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Investment</div>
+      <div class="section-label">Investment</div>
       <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Pricing Packages</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Choose a plan that fits your celebration.</p>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Flexible plans for every show.</p>
     </div>
 
     <div class="row g-4 justify-content-center" style="max-width:64rem; margin:0 auto;">
@@ -561,28 +541,28 @@
         <div class="pricing-card">
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Silver</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Essentials</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹1,24,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹2,25,000</div>
           <ul class="pricing-features">
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 50 guests</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic décor</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Coordinator</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 100 guests</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic sound & lighting</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Event coordinator</li>
           </ul>
           <a href="#" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Get Started</a>
         </div>
       </div>
 
-      <!-- Gold - Featured -->
+      <!-- Gold - featured -->
       <div class="col-md-6 col-lg-4">
         <div class="pricing-card featured">
           <div class="pricing-badge">Most Popular</div>
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600; margin-top:0.5rem;">Gold</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Signature</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹3,33,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹5,75,000</div>
           <ul class="pricing-features">
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 120 guests</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Premium florals</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photography</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full-day coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 250 guests</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Premium AV & stage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photography + video</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full‑day coverage</li>
           </ul>
           <a href="#" class="btn-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Book Gold</a>
         </div>
@@ -593,12 +573,12 @@
         <div class="pricing-card">
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Platinum</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Luxury</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹6,66,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹11,99,000</div>
           <ul class="pricing-features">
             <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited guests</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke design</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photo+video</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi-day coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke stage design</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photo + video + drone</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi‑day coverage</li>
           </ul>
           <a href="#" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Go Platinum</a>
         </div>
@@ -609,11 +589,11 @@
 
 <!-- ===== FOOTER ===== -->
 <footer style="text-align:center; padding:2rem 0 0.5rem; border-top:1px solid rgba(212,175,55,0.15); margin-top:1.5rem;">
-  <p style="color:#78716C; font-size:0.8rem;">&copy; 2026 Asquare Events · Personal celebrations crafted with heart.</p>
+  <p style="color:#78716C; font-size:0.8rem;">&copy; 2026 Asquare Events · Entertainment that electrifies.</p>
 </footer>
 
 <!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
-</html> 
+</html>
