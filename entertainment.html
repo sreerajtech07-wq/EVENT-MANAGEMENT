@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entertainment Events · Asquare</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  
+  <style>
+    /* ----- reset & base ----- */
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Montserrat', system-ui, sans-serif;
+      background-color: #0A0A0A;
+      color: #FAFAF9;
+      padding: 2rem 1rem 4rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    body.light-mode {
+      background-color: #FAF9F6;
+      color: #0A0A0A;
+    }
+    body.light-mode .glass-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+    body.light-mode .service-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+    body.light-mode .pricing-card {
+      background: rgba(255, 255, 255, 0.9) !important;
+    }
+    body.light-mode .text-secondary-custom {
+      color: #57534E !important;
+    }
+    body.light-mode .bg-gold-soft {
+      background: rgba(212, 175, 55, 0.08) !important;
+    }
+    body.light-mode .btn-outline-gold {
+      color: #0A0A0A;
+    }
+    
+    /* fonts */
+    .font-display {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.04em;
+    }
+    .text-gold { color: #D4AF37; }
+    .text-gradient {
+      background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* glass */
+    .glass-card {
+      background: rgba(20, 20, 20, 0.75);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    
+    /* buttons */
+    .btn-gold {
+      background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
+      color: #fff;
+      border: none;
+      padding: 0.65rem 1.8rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+      color: #fff;
+    }
+    .btn-outline-gold {
+      background: transparent;
+      color: #FAFAF9;
+      border: 2px solid rgba(212, 175, 55, 0.15);
+      padding: 0.65rem 1.8rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
+    .btn-outline-gold:hover {
+      border-color: #D4AF37;
+      background: rgba(212, 175, 55, 0.08);
+      color: #FAFAF9;
+    }
+    
+    /* service cards – entertainment focus */
+    .service-card {
+      background: rgba(20, 20, 20, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      border-radius: 1rem;
+      padding: 0.75rem;
+      text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    }
+    .service-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .service-card h5 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      font-family: 'Cinzel', serif;
+    }
+    .service-card p {
+      font-size: 0.75rem;
+      color: #A8A29E;
+      margin-bottom: 0;
+    }
+    
+    /* pricing */
+    .pricing-card {
+      padding: 1.5rem;
+      border-radius: 1.25rem;
+      background: rgba(20, 20, 20, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      transition: transform 0.4s, box-shadow 0.4s;
+      height: 100%;
+      position: relative;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .pricing-card.featured {
+      border-color: #D4AF37;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(184, 134, 11, 0.06));
+      transform: scale(1.02);
+    }
+    .pricing-card.featured:hover {
+      transform: scale(1.02) translateY(-6px);
+      box-shadow: 0 0 40px rgba(212, 175, 55, 0.2);
+    }
+    .pricing-badge {
+      position: absolute;
+      top: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0.2rem 1rem;
+      background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      border-radius: 9999px;
+    }
+    .pricing-price {
+      font-family: 'Cinzel', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .pricing-features {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.3rem 0;
+      color: #A8A29E;
+      font-size: 0.85rem;
+    }
+    body.light-mode .pricing-features li {
+      color: #57534E;
+    }
+    
+    /* gallery carousel */
+    .gallery-slide {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      padding: 0.5rem;
+    }
+    .gallery-item {
+      aspect-ratio: 1;
+      border-radius: 0.75rem;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.05);
+    }
+    .gallery-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10, 10, 10, 0.85) 0%, transparent 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0.75rem;
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .gallery-item:hover .gallery-overlay {
+      opacity: 1;
+    }
+    .gallery-category {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #D4AF37;
+    }
+    
+    /* theme toggle */
+    .theme-toggle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 20, 20, 0.75);
+      border: 1px solid rgba(212, 175, 55, 0.15);
+      cursor: pointer;
+      color: #FAFAF9;
+      transition: all 0.3s;
+    }
+    .theme-toggle:hover {
+      border-color: #D4AF37;
+    }
+    body.light-mode .theme-toggle {
+      background: rgba(255, 255, 255, 0.9);
+      color: #0A0A0A;
+    }
+    
+    .back-home {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #A8A29E;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    .back-home:hover {
+      color: #D4AF37;
+    }
+    
+    .bg-gold-soft {
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.12), rgba(184, 134, 11, 0.06));
+      border-radius: 1.5rem;
+      padding: 2rem 1.5rem;
+    }
+    .gold-line {
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(135deg, #B8860B, #D4AF37, #F5D061);
+      margin: 0.5rem auto;
+      border-radius: 4px;
+    }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #D4AF37;
+    }
+    .text-secondary-custom {
+      color: #A8A29E;
+    }
+    
+    .carousel-inner {
+      padding: 0.5rem;
+      background: rgba(20, 20, 20, 0.3);
+      border-radius: 0.75rem;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      background-color: rgba(0,0,0,0.5);
+      border-radius: 50%;
+      padding: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+      .gallery-slide {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pricing-card.featured {
+        transform: scale(1);
+      }
+      .pricing-card.featured:hover {
+        transform: translateY(-6px);
+      }
+      .service-card img {
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== BACK + THEME TOGGLE ===== -->
+<div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
+  <a href="#" class="back-home" onclick="history.back(); return false;">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+    Back to Home
+  </a>
+  <button class="theme-toggle" onclick="document.body.classList.toggle('light-mode')" aria-label="Toggle theme">
+    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+  </button>
+</div>
+
+<!-- ===== HEADING ===== -->
+<div style="text-align:center; padding:0.5rem 0 1rem;">
+  <h1 class="font-display" style="font-size:clamp(2rem, 5vw, 3rem); font-weight:700;">
+    <span class="text-gradient">Entertainment Events</span>
+  </h1>
+  <div class="gold-line"></div>
+</div>
+
+<!-- ===== ABOUT ===== -->
+<section style="padding:2rem 0 1rem;">
+  <div style="max-width:56rem; margin:0 auto; text-align:center;">
+    <div class="section-label">About</div>
+    <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Live · Laugh · <span class="text-gradient">Perform</span></h2>
+    <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">
+      From high‑energy fashion shows and DJ nights to comedy, music concerts, and theatre – we produce entertainment events that leave audiences spellbound.
+    </p>
+    <div class="glass-card" style="padding:1.25rem; margin-top:1.5rem; max-width:42rem; margin-left:auto; margin-right:auto; border-radius:1rem;">
+      <p style="font-size:0.9rem; line-height:1.6; color:#A8A29E; margin:0;">
+        Every show is curated with state‑of‑the‑art production, creative storytelling, and flawless execution. Your stage, our passion.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SERVICES : 9 ENTERTAINMENT EVENTS ===== -->
+<section class="bg-gold-soft" style="margin:0.5rem 0;">
+  <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
+    <div style="text-align:center; margin-bottom:2rem;">
+      <div class="section-label">Our Entertainment Roster</div>
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Shows & Experiences</h2>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Nine electrifying genres – one stage.</p>
+    </div>
+
+    <!-- 9 cards – 3 per row (exact events) -->
+    <div class="row g-3 justify-content-center" style="max-width:900px; margin:0 auto;">
+      <!-- 1. Fashion Show -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Fashion Show" loading="lazy" />
+          <h5 class="font-display">Fashion Show</h5>
+          <p>Runway · style · glamour</p>
+        </div>
+      </div>
+      <!-- 2. DJ Night -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb2?w=400&q=80" alt="DJ Night" loading="lazy" />
+          <h5 class="font-display">DJ Night</h5>
+          <p>Beats · lights · energy</p>
+        </div>
+      </div>
+      <!-- 3. Comedy Show -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=400&q=80" alt="Comedy Show" loading="lazy" />
+          <h5 class="font-display">Comedy Show</h5>
+          <p>Laughter · wit · stand‑up</p>
+        </div>
+      </div>
+
+      <!-- 4. Music Concert -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&q=80" alt="Music Concert" loading="lazy" />
+          <h5 class="font-display">Music Concert</h5>
+          <p>Live bands · arena</p>
+        </div>
+      </div>
+      <!-- 5. Live Performance -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="Live Performance" loading="lazy" />
+          <h5 class="font-display">Live Performance</h5>
+          <p>Artists · raw emotion</p>
+        </div>
+      </div>
+      <!-- 6. Talent Show -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" alt="Talent Show" loading="lazy" />
+          <h5 class="font-display">Talent Show</h5>
+          <p>Discovery · spotlight</p>
+        </div>
+      </div>
+
+      <!-- 7. Dance Show -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=400&q=80" alt="Dance Show" loading="lazy" />
+          <h5 class="font-display">Dance Show</h5>
+          <p>Choreography · rhythm</p>
+        </div>
+      </div>
+      <!-- 8. Theater Play -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&q=80" alt="Theater Play" loading="lazy" />
+          <h5 class="font-display">Theater Play</h5>
+          <p>Drama · script · stage</p>
+        </div>
+      </div>
+      <!-- 9. (extra) – we already have 8, but we add a 9th to keep 3x3 : "Immersive Show" as a bonus entertainment -->
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Immersive Show" loading="lazy" />
+          <h5 class="font-display">Immersive Show</h5>
+          <p>360° · experience</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY CAROUSEL ===== -->
+<section style="padding:2rem 0;">
+  <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
+    <div style="text-align:center; margin-bottom:2rem;">
+      <div class="section-label">Moments</div>
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Entertainment Gallery</h2>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Highlights from our shows.</p>
+    </div>
+
+    <div style="max-width:900px; margin:0 auto;">
+      <div id="galleryCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <!-- Slide 1: Fashion, DJ, Comedy -->
+          <div class="carousel-item active">
+            <div class="gallery-slide">
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&q=80" alt="Fashion Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Fashion Show</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1571266028243-e4733b0f0bb2?w=400&q=80" alt="DJ Night" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">DJ Night</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1527224857830-43a7acc85260?w=400&q=80" alt="Comedy Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Comedy Show</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 2: Music, Live, Talent -->
+          <div class="carousel-item">
+            <div class="gallery-slide">
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1506157786151-b8491531f063?w=400&q=80" alt="Music Concert" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Music Concert</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=400&q=80" alt="Live Performance" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Live Performance</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=400&q=80" alt="Talent Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Talent Show</span></div>
+              </div>
+            </div>
+          </div>
+          <!-- Slide 3: Dance, Theater, Immersive -->
+          <div class="carousel-item">
+            <div class="gallery-slide">
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1518834107812-67b0b7c58434?w=400&q=80" alt="Dance Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Dance Show</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1507676184212-d03ab07a01bf?w=400&q=80" alt="Theater Play" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Theater Play</span></div>
+              </div>
+              <div class="gallery-item">
+                <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&q=80" alt="Immersive Show" loading="lazy" />
+                <div class="gallery-overlay"><span class="gallery-category">Immersive Show</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PRICING ===== -->
+<section class="bg-gold-soft" style="margin:0.5rem 0;">
+  <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
+    <div style="text-align:center; margin-bottom:2rem;">
+      <div class="section-label">Investment</div>
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Pricing Packages</h2>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Flexible plans for every show.</p>
+    </div>
+
+    <div class="row g-4 justify-content-center" style="max-width:64rem; margin:0 auto;">
+      <!-- Silver -->
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card">
+          <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Silver</h3>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Essentials</p>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹2,25,000</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 100 guests</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic sound & lighting</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Event coordinator</li>
+          </ul>
+          <a href="#" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Get Started</a>
+        </div>
+      </div>
+
+      <!-- Gold - featured -->
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <h3 class="font-display" style="font-size:1.25rem; font-weight:600; margin-top:0.5rem;">Gold</h3>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Signature</p>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹5,75,000</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 250 guests</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Premium AV & stage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photography + video</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full‑day coverage</li>
+          </ul>
+          <a href="#" class="btn-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Book Gold</a>
+        </div>
+      </div>
+
+      <!-- Platinum -->
+      <div class="col-md-6 col-lg-4">
+        <div class="pricing-card">
+          <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Platinum</h3>
+          <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Luxury</p>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹11,99,000</div>
+          <ul class="pricing-features">
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited guests</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke stage design</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photo + video + drone</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi‑day coverage</li>
+          </ul>
+          <a href="#" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Go Platinum</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer style="text-align:center; padding:2rem 0 0.5rem; border-top:1px solid rgba(212,175,55,0.15); margin-top:1.5rem;">
+  <p style="color:#78716C; font-size:0.8rem;">&copy; 2026 Asquare Events · Entertainment that electrifies.</p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
