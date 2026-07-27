@@ -47,7 +47,7 @@
            </svg>
            </button>
            <!-- Dropdown menu -->
-           <div id="dropdownNavbar" class="z-10 hidden border bg-neutral-primary-medium rounded-base shadow-lg w-64">
+           <div id="dropdownNavbar" class="z-10 hidden border bg-neutral-primary-medium bg-black rounded-base shadow-lg w-64">
         <ul class="p-2 text-sm text-body font-medium" aria-labelledby="dropdownNvbarButton">
          <li>
            <a href="#" class="inline-flex items-center w-full p-2 hover:text-accent-gold hover:text-heading rounded">Birthday Partys</a>
@@ -327,6 +327,13 @@
               <h3 class="font-display text-lg font-semibold">Traditional</h3>
             </div>
           </div>
+          <div class="gallery-item" data-category="birthday">
+            <img src="https://i.pinimg.com/736x/9f/96/ad/9f96ada3e95326b2bce207efeb7529b9.jpg" alt="Luxury birthday party decoration" loading="lazy">
+            <div class="gallery-overlay">
+              <span class="gallery-category">Birthday</span>
+              <h3 class="font-display text-lg font-semibold">Golden Celebration</h3>
+            </div>
+          </div>
           <div class="gallery-item" data-category="Entertainment">
             <img src="./images/fashionshow.jpg" alt="Luxury wedding reception table setting" loading="lazy">
             <div class="gallery-overlay">
@@ -376,8 +383,8 @@
               <h3 class="font-display text-lg font-semibold">Seminar</h3>
             </div>
           </div>
-          <div class="gallery-item" data-category="Entertainment">
-            <img src="https://i.pinimg.com/736x/02/ed/bb/02edbb33308987f30f4d0c506ad6e87c.jpg" alt="event setting">
+          <div class="gallery-item tall" data-category="Entertainment">
+            <img src="https://i.pinimg.com/736x/1b/56/0c/1b560c9e4a50398fed61b26c0cc8a633.jpg" alt="event setting">
             <div class="gallery-overlay">
               <span class="gallery-category">Cultural Events</span>
               <h3 class="font-display text-lg font-semibold">College Fest</h3>
@@ -509,7 +516,9 @@
             <a href="booking.html" class="btn-outline w-full text-center">Go Platinum</a>
           </div>
         </div>
-        <p class="text-sm  text-center" style="color: white;margin-top: 70px;">You can also create your own customized package to suit your requirements. ✅</p>
+        <div class=" glass-card text-center rounded-xl p-2 hidden sm:block" style="color: white; margin-top: 70px;">
+              <p class="text-sm" style="color: var(--text-secondary);">You can also create your own customized package to suit your requirements. ✅</p>
+            </div>
       </div>
       </div>
     </section>
