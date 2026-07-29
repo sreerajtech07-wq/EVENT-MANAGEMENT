@@ -12,14 +12,14 @@
   --text-secondary: #A8A29E;
   --text-muted: #78716C;
 
-  /* Gold palette — warm, luxurious, timeless */
+  /* Gold palette —*/
   --accent-gold: #D4AF37;
   --accent-gold-light: #F5D061;
   --accent-gold-dark: #B8860B;
   --accent-champagne: #E8C872;
-  --accent-purple: #D4AF37;    /* Keeping for legacy, maps to gold */
-  --accent-blue: #C9A962;       /* Warm gold-blue hybrid */
-  --accent-pink: #F5D061;       /* Warm gold-pink hybrid */
+  --accent-purple: #D4AF37;    
+  --accent-blue: #C9A962;       
+  --accent-pink: #F5D061;       
 
   /* Gradients */
   --gradient-primary: linear-gradient(135deg, #B8860B 0%, #D4AF37 45%, #F5D061 100%);
@@ -38,7 +38,7 @@
   --nav-height: 72px;
 }
 
-/* Light mode — warm ivory with subtle gold undertones */
+/* Light mode —  */
 html.light {
   --bg-primary: #FAF9F6;
   --bg-secondary: #FFFFFF;
