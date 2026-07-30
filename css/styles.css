@@ -44,14 +44,17 @@ html.light {
   --bg-secondary: #FFFFFF;
   --bg-card: rgba(255, 255, 255, 0.9);
   --text-primary: #0A0A0A;
-  --text-secondary: #57534E;
+  --text-secondary: #000000;
   --text-muted: #A8A29E;
   --glass-bg: rgba(255, 255, 255, 0.92);
   --glass-border: rgba(212, 175, 55, 0.2);
   --shadow-soft: 0 8px 32px rgba(10, 10, 10, 0.08);
   --shadow-glow: 0 0 40px rgba(212, 175, 55, 0.15);
 }
+#dropdownNavbar{
+  background-color: var(--bg-secondary);
 
+}
 
    /*  RESET & BASE STYLES */
 
