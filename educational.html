@@ -334,7 +334,7 @@
 
 <!-- ===== BACK + THEME TOGGLE ===== -->
 <div class="d-flex flex-wrap align-items-center justify-content-between mb-4">
-  <a href="index.html" class="back-home">
+  <a href="#" class="back-home" onclick="history.back(); return false;">
     <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
     Back to Home
   </a>
@@ -355,14 +355,18 @@
 <section style="padding:2rem 0 1rem;">
   <div style="max-width:56rem; margin:0 auto; text-align:center;">
     <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">About Us</div>
-    <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Inspiring Minds <span class="text-gradient">Through Events</span></h2>
+    <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Dream. Believe. <span class="text-gradient">Achieve.</span></h2>
     <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">
-      At Asquare Events, we specialize in educational events — from hackathons and science fairs to career fairs and coding competitions.
-      Every event is crafted to inspire, educate, and connect.
-    </p>
+At Asquare Events, we organize engaging educational events that inspire learning, creativity, and innovation through competitions, exhibitions, and academic programs.
+Every event is thoughtfully planned to help students learn, collaborate, and showcase their talents.
+
+
     <div class="glass-card" style="padding:1.25rem; margin-top:1.5rem; max-width:42rem; margin-left:auto; margin-right:auto; border-radius:1rem;">
       <p style="font-size:0.9rem; line-height:1.6; color:#A8A29E; margin:0;">
-        We believe that educational events spark innovation and build communities. Our team brings creativity, precision, and a passion for learning to make your events truly impactful.
+We are committed to creating engaging educational experiences that encourage innovation and skill development.
+Our team ensures every educational event is professionally organized from start to finish.
+
+
       </p>
     </div>
   </div>
@@ -371,60 +375,80 @@
 <!-- ===== SERVICES ===== -->
 <section class="bg-gold-soft" style="margin:0.5rem 0;">
   <div style="max-width:80rem; margin:0 auto; padding:0 1rem;">
+
     <div style="text-align:center; margin-bottom:2rem;">
-      <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Our Services</div>
-      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Educational Events</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Explore our signature educational experiences.</p>
+      <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">
+        Our Services
+      </div>
+
+      <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">
+        Educational Events
+      </h2>
+
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">
+        Explore our signature celebrations.
+      </p>
     </div>
 
-    <!-- 6 services - 3 per row -->
-    <div class="row g-3 justify-content-center" style="max-width:900px; margin:0 auto;">
-      <!-- Row 1: Hackathon, Science Fair, Career Fair -->
+
+    <!-- 3 Cards Per Row -->
+    <div class="row g-4 justify-content-center" style="max-width:1200px; margin:0 auto;">
+
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Hackathon" loading="lazy" />
+          <img src="images/hackathon.jpg" alt="Hackathon" loading="lazy">
           <h5 class="font-display">Hackathon</h5>
-          <p>Innovate & build solutions</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&q=80" alt="Science Fair" loading="lazy" />
-          <h5 class="font-display">Science Fair</h5>
-          <p>Discover & experiment</p>
-        </div>
-      </div>
-      <div class="col-6 col-md-4">
-        <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Career Fair" loading="lazy" />
-          <h5 class="font-display">Career Fair</h5>
-          <p>Connect & grow</p>
+          <p>Innovation & Coding Challenges</p>
         </div>
       </div>
 
-      <!-- Row 2: Tech Fests, Quiz Competition, Coding Competitions -->
+
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80" alt="Tech Fest" loading="lazy" />
-          <h5 class="font-display">Tech Fests</h5>
-          <p>Celebrate technology</p>
+          <img src="images/sciencefair.jpg" alt="Science Fair" loading="lazy">
+          <h5 class="font-display">Science Fair</h5>
+          <p>Science Fairs & Championships</p>
         </div>
       </div>
+
+
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt="Quiz Competition" loading="lazy" />
+          <img src="images/career.jpg" alt="Career Fair" loading="lazy">
+          <h5 class="font-display">Career Fair</h5>
+          <p>Career Guidance & Networking</p>
+        </div>
+      </div>
+
+
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="images/coding.jpg" alt="Coding Competition" loading="lazy">
+          <h5 class="font-display">Coding Competition</h5>
+          <p>Programming Challenges</p>
+        </div>
+      </div>
+
+
+      <div class="col-6 col-md-4">
+        <div class="service-card">
+          <img src="images/quiz.jpg" alt="Quiz Competition" loading="lazy">
           <h5 class="font-display">Quiz Competition</h5>
-          <p>Challenge knowledge</p>
+          <p>Knowledge & Academic Contests</p>
         </div>
       </div>
+
+
       <div class="col-6 col-md-4">
         <div class="service-card">
-          <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&q=80" alt="Coding Competition" loading="lazy" />
-          <h5 class="font-display">Coding Competitions</h5>
-          <p>Code & compete</p>
+          <img src="images/techtalk.jpg" alt="Tech Talks" loading="lazy">
+          <h5 class="font-display">Tech Talks</h5>
+          <p>Expert Sessions & Technology Insights</p>
         </div>
       </div>
+
     </div>
+
   </div>
 </section>
 
@@ -434,7 +458,7 @@
     <div style="text-align:center; margin-bottom:2rem;">
       <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Moments</div>
       <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Event Gallery</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Browse through our educational event portfolio.</p>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Browse through our educational events portfolio.</p>
     </div>
 
     <div style="max-width:900px; margin:0 auto;">
@@ -444,19 +468,19 @@
           <div class="carousel-item active">
             <div class="gallery-slide">
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Hackathon" loading="lazy" />
+                <img src="images/hackathon1.jpg" alt="Wedding" loading="lazy" />
                 <div class="gallery-overlay">
                   <span class="gallery-category">Hackathon</span>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&q=80" alt="Science Fair" loading="lazy" />
+                <img src="images/hackathon2.jpg" alt="Engagement" loading="lazy" />
                 <div class="gallery-overlay">
-                  <span class="gallery-category">Science Fair</span>
+                  <span class="gallery-category">Quiz Competition</span>
                 </div>
               </div>
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Career Fair" loading="lazy" />
+                <img src="images/careerfair1.jpg" alt="Birthday" loading="lazy" />
                 <div class="gallery-overlay">
                   <span class="gallery-category">Career Fair</span>
                 </div>
@@ -467,49 +491,27 @@
           <div class="carousel-item">
             <div class="gallery-slide">
               <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80" alt="Tech Fest" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Tech Fest</span>
-                </div>
-              </div>
-              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt="Quiz Competition" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Quiz Competition</span>
-                </div>
-              </div>
-              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=400&q=80" alt="Coding Competition" loading="lazy" />
+                <img src="./images/codingcomp1.jpg" alt="Anniversary" loading="lazy" />
                 <div class="gallery-overlay">
                   <span class="gallery-category">Coding Competition</span>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="./images/sciencefair1.jpg" alt="Baby Shower" loading="lazy" />
+                <div class="gallery-overlay">
+                  <span class="gallery-category">Science Fair</span>
+                </div>
+              </div>
+              <div class="gallery-item">
+                <img src="./images/techtalk1.jpg" alt="Naming" loading="lazy" />
+                <div class="gallery-overlay">
+                  <span class="gallery-category">Tech Talks</span>
                 </div>
               </div>
             </div>
           </div>
           <!-- Slide 3 -->
-          <div class="carousel-item">
-            <div class="gallery-slide">
-              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=400&q=80" alt="Workshop" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Workshop</span>
-                </div>
-              </div>
-              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80" alt="Seminar" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Seminar</span>
-                </div>
-              </div>
-              <div class="gallery-item">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=400&q=80" alt="Innovation" loading="lazy" />
-                <div class="gallery-overlay">
-                  <span class="gallery-category">Innovation</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+ 
         <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
@@ -522,6 +524,8 @@
     </div>
   </div>
 </section>
+</div>
+
 
 <!-- ===== PRICING ===== -->
 <section class="bg-gold-soft" style="margin:0.5rem 0;">
@@ -529,7 +533,7 @@
     <div style="text-align:center; margin-bottom:2rem;">
       <div style="display:inline-block; font-size:0.75rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#D4AF37; margin-bottom:0.75rem;">Investment</div>
       <h2 class="font-display" style="font-size:clamp(1.8rem, 4vw, 2.5rem); font-weight:700;">Pricing Packages</h2>
-      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Choose a plan that fits your educational event.</p>
+      <p style="font-size:1rem; color:#A8A29E; max-width:600px; line-height:1.7; margin:0 auto;">Choose a package that fits your educational event.</p>
     </div>
 
     <div class="row g-4 justify-content-center" style="max-width:64rem; margin:0 auto;">
@@ -538,11 +542,11 @@
         <div class="pricing-card">
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Silver</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Essentials</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹1,24,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹50,000</div>
           <ul class="pricing-features">
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 50 participants</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Basic AV setup</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Coordinator</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 100 participants</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Event planning & coordination</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Participant registration</li>
           </ul>
           <a href="booking.html" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Get Started</a>
         </div>
@@ -554,12 +558,12 @@
           <div class="pricing-badge">Most Popular</div>
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600; margin-top:0.5rem;">Gold</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Signature</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹3,33,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹1,00,000</div>
           <ul class="pricing-features">
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 120 participants</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Premium AV & staging</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photography</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Full-day coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Up to 250 participants</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Guest speaker & judge coordination</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Professional photography & event coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Certificates & prize distribution</li>
           </ul>
           <a href="booking.html" class="btn-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Book Gold</a>
         </div>
@@ -570,12 +574,12 @@
         <div class="pricing-card">
           <h3 class="font-display" style="font-size:1.25rem; font-weight:600;">Platinum</h3>
           <p style="font-size:0.85rem; margin-bottom:0.75rem; color:#A8A29E;">Luxury</p>
-          <div class="pricing-price" style="margin-bottom:1rem;">₹6,66,999</div>
+          <div class="pricing-price" style="margin-bottom:1rem;">₹2,50,000</div>
           <ul class="pricing-features">
             <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Unlimited participants</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Bespoke event design</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Photo+video</li>
-            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Multi-day coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Complete end-to-end event management</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Professional photo & video coverage</li>
+            <li><svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Stage, exhibition & AV setup</li>
           </ul>
           <a href="booking.html" class="btn-outline-gold" style="width:100%; justify-content:center; font-size:0.85rem;">Go Platinum</a>
         </div>
@@ -586,7 +590,7 @@
 
 <!-- ===== FOOTER ===== -->
 <footer style="text-align:center; padding:2rem 0 0.5rem; border-top:1px solid rgba(212,175,55,0.15); margin-top:1.5rem;">
-  <p style="color:#78716C; font-size:0.8rem;">&copy; 2026 Asquare Events · Educational experiences crafted with purpose.</p>
+  <p style="color:#78716C; font-size:0.8rem;">&copy; 2026 Asquare Events · Educational Events celebrations crafted with heart.</p>
 </footer>
 
 <!-- Bootstrap JS -->
