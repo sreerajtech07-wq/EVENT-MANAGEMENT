@@ -516,6 +516,89 @@ html.light .hero-overlay {
   margin-bottom: 0.25rem;
 }
 
+
+/* ===== SHOW MORE BUTTON ===== */
+.gallery-show-more-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+
+.btn-show-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 2rem 0.875rem 2.5rem;
+  border-radius: 9999px;
+  background: var(--bg-card);
+  border: 2px solid var(--glass-border);
+  color: var(--text-primary);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-show-more:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+  border-color: var(--accent-gold);
+  background: rgba(212, 175, 55, 0.05);
+}
+
+.btn-show-more .btn-text {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-show-more .btn-count {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  position: relative;
+  z-index: 1;
+}
+
+.btn-show-more .btn-arrow {
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s ease;
+  color: var(--accent-gold);
+}
+
+.btn-show-more.showing-all .btn-arrow {
+  transform: rotate(180deg);
+}
+
+/* ===== HIDDEN GALLERY ITEMS ===== */
+.gallery-item.hidden-gallery-item {
+  display: none !important;
+}
+
+/* Fade-in animation when showing hidden items */
+.gallery-item.showing-gallery-item {
+  animation: galleryFadeIn 0.5s ease forwards;
+}
+
+@keyframes galleryFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.92) translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Hide button when no hidden items */
+.btn-show-more.hide-button {
+  display: none !important;
+}
+
 /* Gallery filter tabs */
 .filter-tabs {
   display: flex;

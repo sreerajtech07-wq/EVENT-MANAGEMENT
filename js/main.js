@@ -10,19 +10,20 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
-    initTheme();
-    initNavbar();
-    initMobileMenu();
-    initFAQ();
-    initTestimonials();
-    initGalleryFilter();
-    initForms();
-    initPasswordToggles();
-    initPasswordStrength();
-    initNewsletter();
-    setActiveNavLink();
-    setMinEventDate();
-  }
+  initTheme();
+  initNavbar();
+  initMobileMenu();
+  initFAQ();
+  initTestimonials();
+  initGalleryFilter();
+  initShowMore(); // <-- ADD THIS LINE
+  initForms();
+  initPasswordToggles();
+  initPasswordStrength();
+  initNewsletter();
+  setActiveNavLink();
+  setMinEventDate();
+}
 
   /* ---------- Set minimum event date to today ---------- */
   function setMinEventDate() {
@@ -567,3 +568,109 @@
   /* Expose for animations.js */
   window.LuxeEvents = { showModal, closeModal };
 })();
+
+
+/* ===== SHOW MORE / SHOW LESS ===== */
+function initShowMore() {
+  const button = document.getElementById('show-more-btn');
+  const grid = document.getElementById('gallery-grid');
+  if (!button || !grid) return;
+
+  let isShowingAll = false;
+  const allItems = Array.from(grid.querySelectorAll('.gallery-item'));
+  
+  // Set how many items to show initially (first 19 items)
+  const initialCount = 19;
+  const totalItems = allItems.length;
+
+  function updateVisibleItems() {
+    // Get current filter
+    const activeFilter = document.querySelector('.filter-tab.active');
+    const currentFilter = activeFilter ? activeFilter.dataset.filter : 'all';
+
+    // Filter items by category
+    const matchedItems = allItems.filter(item => {
+      return currentFilter === 'all' || item.dataset.category === currentFilter;
+    });
+
+    // Hide all items first
+    allItems.forEach(item => {
+      item.style.display = 'none';
+      item.classList.remove('showing-gallery-item', 'hidden-gallery-item');
+    });
+
+    if (isShowingAll) {
+      // Show ALL matched items with animation
+      matchedItems.forEach((item, index) => {
+        item.style.display = '';
+        setTimeout(() => {
+          item.classList.add('showing-gallery-item');
+        }, index * 20);
+      });
+    } else {
+      // Show only first 'initialCount' matched items
+      const visibleItems = matchedItems.slice(0, initialCount);
+      const hiddenItems = matchedItems.slice(initialCount);
+
+      visibleItems.forEach((item, index) => {
+        item.style.display = '';
+        setTimeout(() => {
+          item.classList.add('showing-gallery-item');
+        }, index * 20);
+      });
+
+      hiddenItems.forEach(item => {
+        item.style.display = 'none';
+        item.classList.add('hidden-gallery-item');
+      });
+    }
+
+    updateButtonState(matchedItems.length);
+  }
+
+  function updateButtonState(totalMatched) {
+    const textSpan = button.querySelector('.btn-text');
+    const countSpan = button.querySelector('.btn-count');
+    
+    if (isShowingAll) {
+      textSpan.textContent = 'Show Less';
+      button.classList.add('showing-all');
+      if (countSpan) {
+        countSpan.textContent = `(Showing all ${totalMatched})`;
+      }
+    } else {
+      textSpan.textContent = 'Show More';
+      button.classList.remove('showing-all');
+      const hiddenCount = Math.max(0, totalMatched - initialCount);
+      if (countSpan) {
+        countSpan.textContent = `(Showing ${Math.min(totalMatched, initialCount)} of ${totalMatched})`;
+      }
+      // Hide button if no hidden items
+      if (hiddenCount <= 0 || totalMatched <= initialCount) {
+        button.classList.add('hide-button');
+      } else {
+        button.classList.remove('hide-button');
+      }
+    }
+  }
+
+  function toggleShowMore() {
+    isShowingAll = !isShowingAll;
+    updateVisibleItems();
+  }
+
+  // Hook into filter tabs
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.addEventListener('click', function() {
+      // Reset show more state when filter changes
+      isShowingAll = false;
+      setTimeout(updateVisibleItems, 150);
+    });
+  });
+
+  // Initial setup
+  setTimeout(updateVisibleItems, 300);
+
+  // Button click handler
+  button.addEventListener('click', toggleShowMore);
+}
