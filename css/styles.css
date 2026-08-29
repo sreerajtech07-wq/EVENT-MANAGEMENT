@@ -574,7 +574,8 @@ html.light .hero-overlay {
 }
 
 /* ===== HIDDEN GALLERY ITEMS ===== */
-.gallery-item.hidden-gallery-item {
+.gallery-item.hidden-gallery-item,
+.gallery-item.is-hidden {
   display: none !important;
 }
 
@@ -598,6 +599,7 @@ html.light .hero-overlay {
 .btn-show-more.hide-button {
   display: none !important;
 }
+
 
 /* Gallery filter tabs */
 .filter-tabs {

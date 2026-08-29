@@ -566,7 +566,7 @@
   }
 
   /* Expose for animations.js */
-  window.LuxeEvents = { showModal, closeModal };
+  window.Asuareevents = { showModal, closeModal };
 })();
 
 
@@ -578,99 +578,113 @@ function initShowMore() {
 
   let isShowingAll = false;
   const allItems = Array.from(grid.querySelectorAll('.gallery-item'));
-  
-  // Set how many items to show initially (first 19 items)
-  const initialCount = 19;
-  const totalItems = allItems.length;
+  const initialCount = 8;
 
-  function updateVisibleItems() {
-    // Get current filter
+  function loadImage(img) {
+    if (!img) return;
+    const src = img.dataset.src || img.getAttribute('src');
+    if (!src || img.dataset.loaded === 'true') return;
+    img.setAttribute('src', src);
+    img.dataset.loaded = 'true';
+  }
+
+  function prepareGalleryState() {
     const activeFilter = document.querySelector('.filter-tab.active');
     const currentFilter = activeFilter ? activeFilter.dataset.filter : 'all';
+    const matchedItems = allItems.filter((item) => currentFilter === 'all' || item.dataset.category === currentFilter);
 
-    // Filter items by category
-    const matchedItems = allItems.filter(item => {
-      return currentFilter === 'all' || item.dataset.category === currentFilter;
-    });
+    matchedItems.forEach((item, index) => {
+      const img = item.querySelector('img');
+      if (!img.dataset.src) {
+        img.dataset.src = img.getAttribute('src') || '';
+      }
 
-    // Hide all items first
-    allItems.forEach(item => {
-      item.style.display = 'none';
-      item.classList.remove('showing-gallery-item', 'hidden-gallery-item');
+      if (index < initialCount) {
+        loadImage(img);
+        item.style.display = '';
+        item.classList.remove('is-hidden');
+      } else {
+        item.style.display = 'none';
+        item.classList.add('is-hidden');
+        if (img.getAttribute('src')) {
+          img.removeAttribute('src');
+        }
+      }
     });
 
     if (isShowingAll) {
-      // Show ALL matched items with animation
-      matchedItems.forEach((item, index) => {
+      matchedItems.forEach((item) => {
+        const img = item.querySelector('img');
+        loadImage(img);
         item.style.display = '';
-        setTimeout(() => {
-          item.classList.add('showing-gallery-item');
-        }, index * 20);
-      });
-    } else {
-      // Show only first 'initialCount' matched items
-      const visibleItems = matchedItems.slice(0, initialCount);
-      const hiddenItems = matchedItems.slice(initialCount);
-
-      visibleItems.forEach((item, index) => {
-        item.style.display = '';
-        setTimeout(() => {
-          item.classList.add('showing-gallery-item');
-        }, index * 20);
-      });
-
-      hiddenItems.forEach(item => {
-        item.style.display = 'none';
-        item.classList.add('hidden-gallery-item');
+        item.classList.remove('is-hidden');
       });
     }
 
     updateButtonState(matchedItems.length);
+    button.setAttribute('aria-expanded', String(isShowingAll));
   }
 
   function updateButtonState(totalMatched) {
     const textSpan = button.querySelector('.btn-text');
     const countSpan = button.querySelector('.btn-count');
-    
+    const hiddenCount = Math.max(0, totalMatched - initialCount);
+
     if (isShowingAll) {
       textSpan.textContent = 'Show Less';
       button.classList.add('showing-all');
-      if (countSpan) {
-        countSpan.textContent = `(Showing all ${totalMatched})`;
-      }
+      if (countSpan) countSpan.textContent = `(Showing all ${totalMatched})`;
     } else {
       textSpan.textContent = 'Show More';
       button.classList.remove('showing-all');
-      const hiddenCount = Math.max(0, totalMatched - initialCount);
-      if (countSpan) {
-        countSpan.textContent = `(Showing ${Math.min(totalMatched, initialCount)} of ${totalMatched})`;
-      }
-      // Hide button if no hidden items
-      if (hiddenCount <= 0 || totalMatched <= initialCount) {
-        button.classList.add('hide-button');
-      } else {
-        button.classList.remove('hide-button');
-      }
+      if (countSpan) countSpan.textContent = `(Showing ${Math.min(totalMatched, initialCount)} of ${totalMatched})`;
+      button.classList.toggle('hide-button', hiddenCount <= 0 || totalMatched <= initialCount);
     }
   }
 
   function toggleShowMore() {
     isShowingAll = !isShowingAll;
-    updateVisibleItems();
+    const activeFilter = document.querySelector('.filter-tab.active');
+    const currentFilter = activeFilter ? activeFilter.dataset.filter : 'all';
+    const matchedItems = allItems.filter((item) => currentFilter === 'all' || item.dataset.category === currentFilter);
+
+    matchedItems.forEach((item) => {
+      const img = item.querySelector('img');
+      if (isShowingAll) {
+        loadImage(img);
+        item.style.display = '';
+        item.classList.remove('is-hidden');
+      } else {
+        if (matchedItems.indexOf(item) >= initialCount) {
+          item.style.display = 'none';
+          item.classList.add('is-hidden');
+          if (img) {
+            img.removeAttribute('src');
+          }
+        }
+      }
+    });
+
+    if (isShowingAll) {
+      matchedItems.forEach((item, index) => {
+        if (index >= initialCount) {
+          const img = item.querySelector('img');
+          loadImage(img);
+        }
+      });
+    }
+
+    updateButtonState(matchedItems.length);
+    button.setAttribute('aria-expanded', String(isShowingAll));
   }
 
-  // Hook into filter tabs
-  document.querySelectorAll('.filter-tab').forEach(tab => {
-    tab.addEventListener('click', function() {
-      // Reset show more state when filter changes
+  document.querySelectorAll('.filter-tab').forEach((tab) => {
+    tab.addEventListener('click', () => {
       isShowingAll = false;
-      setTimeout(updateVisibleItems, 150);
+      prepareGalleryState();
     });
   });
 
-  // Initial setup
-  setTimeout(updateVisibleItems, 300);
-
-  // Button click handler
   button.addEventListener('click', toggleShowMore);
+  prepareGalleryState();
 }

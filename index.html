@@ -241,8 +241,7 @@
     </section>
 
     <!--  GALLERY  -->
-
-    <!--  GALLERY  -->
+<!--  GALLERY  -->
 <section id="gallery" class="gallery-section section-padding" aria-labelledby="gallery-heading">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-8 gsap-reveal">
@@ -261,7 +260,7 @@
       <button class="filter-tab" data-filter="entertainment" role="tab">Entertainment Events</button>
     </div>
 
-    <div class="gallery-grid" id="gallery-grid">
+    <div class="gallery-grid" id="gallery-grid" aria-live="polite">
       
       <!-- ====== FIRST 19 ITEMS (VISIBLE INITIALLY) ====== -->
       
@@ -645,14 +644,15 @@
         </div>
       </div>
 
+      </div>
+      <!-- ===== END GALLERY GRID ===== -->
     </div>
-    <!-- ===== END GALLERY GRID ===== -->
 
     <!-- ===== SHOW MORE BUTTON ===== -->
     <div class="gallery-show-more-wrapper gsap-reveal">
-      <button id="show-more-btn" class="btn-show-more">
+      <button id="show-more-btn" class="btn-show-more" type="button" aria-expanded="false" aria-controls="gallery-grid">
         <span class="btn-text">Show More</span>
-        <span class="btn-count" id="hidden-count">(Showing 19 of 38)</span>
+        <span class="btn-count" id="hidden-count">(Showing 8 of 42)</span>
         <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M6 9l6 6 6-6"/>
         </svg>
