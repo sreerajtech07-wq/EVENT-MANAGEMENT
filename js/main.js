@@ -37,17 +37,18 @@
   function initTheme() {
     const toggle = document.getElementById('theme-toggle');
     const saved = localStorage.getItem('luxe-theme');
+    const isLight = saved === 'light';
 
-    if (saved === 'light') {
-      document.documentElement.classList.add('light');
-    }
+    document.documentElement.classList.toggle('light', isLight);
+    document.body.classList.toggle('light-mode', isLight);
 
     if (toggle) {
       toggle.addEventListener('click', () => {
         document.body.classList.add('theme-transitioning');
         document.documentElement.classList.toggle('light');
-        const isLight = document.documentElement.classList.contains('light');
-        localStorage.setItem('luxe-theme', isLight ? 'light' : 'dark');
+        const nextIsLight = document.documentElement.classList.contains('light');
+        document.body.classList.toggle('light-mode', nextIsLight);
+        localStorage.setItem('luxe-theme', nextIsLight ? 'light' : 'dark');
 
         setTimeout(() => {
           document.body.classList.remove('theme-transitioning');
@@ -79,7 +80,16 @@
     const mobileMenu = document.getElementById('mobile-menu');
     if (!hamburger || !mobileMenu) return;
 
-    const links = mobileMenu.querySelectorAll('.nav-link');
+    const links = mobileMenu.querySelectorAll('.nav-link, .mobile-sub-link');
+    const servicesToggle = mobileMenu.querySelector('.mobile-services-toggle');
+    const servicesDropdown = mobileMenu.querySelector('.mobile-dropdown');
+
+    if (servicesToggle && servicesDropdown) {
+      servicesToggle.addEventListener('click', () => {
+        const isOpen = servicesDropdown.classList.toggle('open');
+        servicesToggle.setAttribute('aria-expanded', String(isOpen));
+      });
+    }
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
@@ -92,6 +102,11 @@
         hamburger.classList.remove('active');
         mobileMenu.classList.remove('open');
         document.body.style.overflow = '';
+
+        if (servicesDropdown) {
+          servicesDropdown.classList.remove('open');
+          servicesToggle?.setAttribute('aria-expanded', 'false');
+        }
       });
     });
   }

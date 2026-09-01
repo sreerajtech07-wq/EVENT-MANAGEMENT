@@ -1169,6 +1169,60 @@ html.light .mobile-menu {
   font-family: 'Cinzel', serif;
 }
 
+.mobile-dropdown {
+  width: 100%;
+  max-width: 320px;
+}
+
+.mobile-services-toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  font-family: 'Cinzel', serif;
+  cursor: pointer;
+  padding: 0;
+}
+
+.mobile-dropdown-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+  transition: transform 0.3s ease;
+}
+
+.mobile-dropdown.open .mobile-dropdown-icon {
+  transform: rotate(45deg);
+}
+
+.mobile-dropdown-panel {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.mobile-dropdown.open .mobile-dropdown-panel {
+  display: flex;
+}
+
+.mobile-sub-link {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-align: center;
+}
+
+.mobile-sub-link:hover {
+  color: var(--accent-gold);
+}
+
 /* Hamburger icon — animated to 'X' */
 .hamburger {
   width: 28px;

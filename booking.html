@@ -255,29 +255,25 @@
       const iconMoon = document.getElementById('theme-icon-moon');
       const label = document.getElementById('theme-label');
 
+      const applyTheme = (isLight) => {
+        document.documentElement.classList.toggle('light', isLight);
+        document.body.classList.toggle('light-mode', isLight);
+        iconSun.style.display = isLight ? 'none' : 'block';
+        iconMoon.style.display = isLight ? 'block' : 'none';
+        label.textContent = isLight ? 'Dark Mode' : 'Light Mode';
+      };
+
       // Check for saved theme preference
-      if (localStorage.getItem('theme') === 'light') {
-        document.body.classList.add('light-mode');
-        iconSun.style.display = 'none';
-        iconMoon.style.display = 'block';
-        label.textContent = 'Dark Mode';
+      if (localStorage.getItem('luxe-theme') === 'light') {
+        applyTheme(true);
+      } else {
+        applyTheme(false);
       }
 
       toggleBtn.addEventListener('click', function() {
-        document.body.classList.toggle('light-mode');
-        const isLight = document.body.classList.contains('light-mode');
-        
-        if (isLight) {
-          iconSun.style.display = 'none';
-          iconMoon.style.display = 'block';
-          label.textContent = 'Dark Mode';
-          localStorage.setItem('theme', 'light');
-        } else {
-          iconSun.style.display = 'block';
-          iconMoon.style.display = 'none';
-          label.textContent = 'Light Mode';
-          localStorage.setItem('theme', 'dark');
-        }
+        const nextIsLight = !document.documentElement.classList.contains('light');
+        applyTheme(nextIsLight);
+        localStorage.setItem('luxe-theme', nextIsLight ? 'light' : 'dark');
       });
     })();
   </script>
